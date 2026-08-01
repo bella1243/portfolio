@@ -81,11 +81,11 @@ export default function About() {
           viewport={{ once: true }}
           className="glass-card mb-16"
         >
-          <h3 className="font-display text-xl font-semibold mb-6 flex items-center gap-2">
+          <h3 className="font-display text-xl font-semibold mb-6 flex items-center justify-center gap-2">
             <Heart className="w-5 h-5 text-cyan-400" />
             Personal Interests
           </h3>
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap justify-center gap-3">
             {profile.interests.map((interest, i) => (
               <motion.span
                 key={interest}

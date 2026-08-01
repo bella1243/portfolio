@@ -1,12 +1,7 @@
-export interface Skill {
-  name: string
-  level: number
-}
-
 export interface SkillCategory {
   title: string
   icon: string
-  skills: Skill[]
+  skills: string[]
 }
 
 export const skillCategories: SkillCategory[] = [
@@ -14,53 +9,69 @@ export const skillCategories: SkillCategory[] = [
     title: 'Programming',
     icon: 'Code2',
     skills: [
-      { name: 'Python', level: 90 },
-      { name: 'JavaScript', level: 85 },
-      { name: 'Java', level: 75 },
-      { name: 'C++', level: 70 },
-      { name: 'Assembly Language', level: 65 },
+      'Python',
+      'JavaScript',
+      'TypeScript',
+      'Java',
+      'C++',
+      'Assembly Language',
     ],
   },
   {
     title: 'Web Development',
     icon: 'Globe',
     skills: [
-      { name: 'HTML', level: 95 },
-      { name: 'CSS', level: 90 },
-      { name: 'JavaScript', level: 85 },
-      { name: 'Firebase', level: 80 },
-      { name: 'Responsive Design', level: 90 },
+      'HTML',
+      'CSS',
+      'React',
+      'JavaScript',
+      'Firebase',
+      'Responsive Design',
     ],
   },
   {
     title: 'Networking',
     icon: 'Network',
     skills: [
-      { name: 'Computer Networking', level: 88 },
-      { name: 'Network Infrastructure', level: 85 },
-      { name: 'Troubleshooting', level: 90 },
-      { name: 'Systems Integration', level: 82 },
+      'Computer Networking',
+      'Network Infrastructure',
+      'Routing & Switching',
+      'TCP/IP',
+      'Troubleshooting',
+      'Systems Integration',
     ],
   },
   {
-    title: 'IoT & Embedded Systems',
-    icon: 'Cpu',
+    title: 'Cybersecurity',
+    icon: 'Shield',
     skills: [
-      { name: 'ESP32', level: 88 },
-      { name: 'Firebase Realtime Database', level: 85 },
-      { name: 'Sensors and Actuators', level: 90 },
-      { name: 'GPS Integration', level: 80 },
-      { name: 'Embedded Programming', level: 85 },
+      'Network Security',
+      'Threat Analysis',
+      'Security Best Practices',
+      'Risk Assessment',
+      'Access Control',
     ],
   },
   {
-    title: 'AI & Emerging Technologies',
+    title: 'AI & Emerging Tech',
     icon: 'Brain',
     skills: [
-      { name: 'Generative AI', level: 85 },
-      { name: 'Prompt Engineering', level: 88 },
-      { name: 'AI Applications', level: 82 },
-      { name: 'Automation', level: 80 },
+      'Generative AI',
+      'Prompt Engineering',
+      'AI Applications',
+      'Automation',
+      'Machine Learning Basics',
+    ],
+  },
+  {
+    title: 'Electrical Engineering',
+    icon: 'Zap',
+    skills: [
+      'Circuit Analysis',
+      'Communication Systems',
+      'Signal Processing',
+      'Digital Systems',
+      'Electronics Design',
     ],
   },
 ]

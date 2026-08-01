@@ -13,10 +13,10 @@ export const profile = {
   interests: [
     'Artificial Intelligence',
     'Software Development',
-    'Computer Networking',
+    'Electrical Engineering',
+    'Networking & Infrastructure',
     'Cybersecurity',
     'Emerging Technologies',
-    'Internet of Things (IoT)'
   ],
   email: 'abelbekanagot@gmail.com',
   linkedin: 'https://www.linkedin.com/in/abel-bekana-b42100285/',
