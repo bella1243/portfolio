@@ -49,6 +49,17 @@
     @apply bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent;
   }
 
+  .profile-image-blend {
+    -webkit-mask-image:
+      linear-gradient(to right, transparent, black 10%, black 90%, transparent),
+      linear-gradient(to bottom, transparent, black 8%, black 92%, transparent);
+    -webkit-mask-composite: source-in;
+    mask-image:
+      linear-gradient(to right, transparent, black 10%, black 90%, transparent),
+      linear-gradient(to bottom, transparent, black 8%, black 92%, transparent);
+    mask-composite: intersect;
+  }
+
   html.light .gradient-text {
     @apply from-cyan-600 via-blue-700 to-purple-700;
   }
