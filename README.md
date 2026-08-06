@@ -18,7 +18,7 @@ A modern, responsive portfolio website built with React, Tailwind CSS, and Frame
 
 ## Tech Stack
 
-- **React 18** + **TypeScript**
+- **React ** + **TypeScript**
 - **Vite** for fast development
 - **Tailwind CSS** for styling
 - **Framer Motion** for animations

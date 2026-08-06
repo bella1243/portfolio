@@ -7,8 +7,8 @@ export interface EducationItem {
 
 export const educationItems: EducationItem[] = [
   {
-    title: 'Electrical and Computer Engineering (Communication Stream)',
-    institution: 'University',
+    title: 'Electrical and Computer Engineering (B.Sc.)',
+    institution: 'Addis Ababa Science and Technology University',
     type: 'education',
     icon: 'GraduationCap',
   },

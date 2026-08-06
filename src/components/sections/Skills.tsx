@@ -62,20 +62,15 @@ export default function Skills() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="glass-card mb-12"
+          className="glass-card"
         >
           <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
             <div className="p-3 rounded-xl bg-cyan-500/10 border border-cyan-500/20">
               <ActiveIcon className="w-6 h-6 text-cyan-400" />
             </div>
-            <div>
-              <h3 className="font-display text-xl font-semibold text-gray-100">
-                {skillCategories[activeCategory].title}
-              </h3>
-              <p className="text-sm text-gray-500">
-                {skillCategories[activeCategory].skills.length} core skills
-              </p>
-            </div>
+            <h3 className="font-display text-xl font-semibold text-gray-100">
+              {skillCategories[activeCategory].title}
+            </h3>
           </div>
 
           <div className="flex flex-wrap justify-center gap-3">
@@ -99,30 +94,6 @@ export default function Skills() {
             ))}
           </div>
         </motion.div>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {skillCategories.map((cat, i) => {
-            const Icon = iconMap[cat.icon] || Code2
-            return (
-              <motion.div
-                key={cat.title}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-                whileHover={{ y: -4 }}
-                onClick={() => setActiveCategory(i)}
-                className={`glass-card cursor-pointer text-center transition-all ${
-                  activeCategory === i ? 'border-cyan-500/40 shadow-lg shadow-cyan-500/10' : ''
-                }`}
-              >
-                <Icon className="w-8 h-8 text-cyan-400 mx-auto mb-3" />
-                <h4 className="font-medium text-sm text-gray-300">{cat.title}</h4>
-                <p className="text-xs text-gray-500 mt-1">{cat.skills.length} skills</p>
-              </motion.div>
-            )
-          })}
-        </div>
       </div>
     </section>
   )

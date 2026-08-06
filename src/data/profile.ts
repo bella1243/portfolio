@@ -4,7 +4,7 @@ import resumePdf from '../../files/Abel Bekana.pdf'
 export const profile = {
   name: 'Abel',
   profileImage,
-  title: 'Electrical and Computer Engineer | Communication Systems | IoT Developer | AI Enthusiast',
+  title: 'Electrical and Computer Engineer | Communication Systems | AI Enthusiast',
   intro:
     'Electrical and Computer Engineer passionate about Artificial Intelligence, IoT, networking, and emerging technologies. I enjoy building innovative solutions that solve real world problems and continuously expanding my knowledge in technology.',
   bio: `I'm a dedicated Engineer with a focus on AI systems. My journey in technology has been driven by curiosity and a desire to create meaningful impact through innovation.`,

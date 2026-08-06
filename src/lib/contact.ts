@@ -16,6 +16,7 @@ export async function submitContactForm(data: ContactFormData): Promise<void> {
   if (!accessKey) {
     throw new Error(
       'Contact form is not configured yet. Add your Web3Forms access key to a .env file.'
+      
     )
   }
 
