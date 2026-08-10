@@ -14,7 +14,7 @@ export const skillCategories: SkillCategory[] = [
       'TypeScript',
       'Java',
       'C++',
-      'Assembly Language',
+      'C',
     ],
   },
   {

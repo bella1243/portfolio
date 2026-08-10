@@ -13,8 +13,9 @@ export const educationItems: EducationItem[] = [
     icon: 'GraduationCap',
   },
   {
-    title: 'Industrial Automation Certifications',
-    type: 'certification',
+    title: 'Industrial Automation ',
+    institution: 'Akaki Polytechnic College',
+    type: 'education',
     icon: 'Factory',
   },
   {

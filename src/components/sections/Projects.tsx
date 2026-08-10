@@ -1,5 +1,17 @@
 import { motion } from 'framer-motion'
-import { ExternalLink, FolderKanban, Car, GraduationCap, Building2 } from 'lucide-react'
+import {
+  ExternalLink,
+  FolderKanban,
+  Car,
+  GraduationCap,
+  Building2,
+  Instagram,
+  Lightbulb,
+  Gamepad2,
+  Zap,
+  CalendarCheck2,
+} from 'lucide-react'
+
 import type { LucideIcon } from 'lucide-react'
 import SectionHeading from '../ui/SectionHeading'
 import { projects } from '../../data/projects'
@@ -8,6 +20,11 @@ const iconMap: Record<string, LucideIcon> = {
   Car,
   GraduationCap,
   Building2,
+  Instagram,
+  Lightbulb,
+  Gamepad2,
+  Zap,
+  CalendarCheck2,
 }
 
 export default function Projects() {
@@ -15,9 +32,9 @@ export default function Projects() {
     <section id="projects" className="section-padding relative" aria-label="Projects">
       <div className="max-w-7xl mx-auto">
         <SectionHeading
-          title="Featured Projects"
-          subtitle="Innovative solutions spanning IoT, AI, and network infrastructure"
-          icon={FolderKanban}
+          title="Projects"
+          subtitle=""
+         
         />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
