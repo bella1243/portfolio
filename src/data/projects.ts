@@ -13,11 +13,11 @@ export const projects: Project[] = [
     description:
       'An IoT-based vehicle safety system that monitors driver safety and provides real-time tracking.',
     features: [
-      'Detects alcohol levels using an MQ-3 sensor',
+      'Detects alcohol levels using sensors',
       'Prevents vehicle startup when alcohol is detected',
       'Provides accident detection and GPS tracking',
-      'Sends real-time data to Firebase',
-      'Displays information on a web dashboard',
+      'Displays information on a web dashboard ',
+      'Analyzes the information using AI'
     ],
     technologies: ['ESP32', 'Firebase', 'HTML', 'CSS', 'JavaScript', 'IoT Sensors'],
     gradient: 'from-cyan-500/20 to-blue-600/20',
@@ -50,4 +50,5 @@ export const projects: Project[] = [
     gradient: 'from-emerald-500/20 to-teal-600/20',
     icon: 'Building2',
   },
+ 
 ]
