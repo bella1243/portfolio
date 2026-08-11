@@ -1,6 +1,6 @@
 # Personal Portfolio
 
-A modern, responsive portfolio website built with React, Tailwind CSS, and Framer Motion.
+A portfolio website built with React, Tailwind CSS, and Framer Motion.
 
 ## Features
 
@@ -30,5 +30,5 @@ A modern, responsive portfolio website built with React, Tailwind CSS, and Frame
 npm install
 npm run dev
 ```
-
+https://portfolio-pearl-three-q96bb0ecft.vercel.app/
 
