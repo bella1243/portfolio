@@ -29,7 +29,7 @@ export const profile = {
 }
 
 export const stats = [
-  { label: 'Projects Completed', value: 12, suffix: '+' },
+  { label: 'Projects Completed', value: 9, suffix: '+' },
   { label: 'Technologies Learned', value: 25, suffix: '+' },
   { label: 'Certifications', value: 6, suffix: '+' },
 ]
