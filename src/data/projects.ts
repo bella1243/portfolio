@@ -257,6 +257,7 @@ export const projects: Project[] = [
     duration: '2025',
     type: 'Network Infrastructure',
     status: 'Completed',
+    hideLiveDemo: true,
   },
 
   {
@@ -307,6 +308,7 @@ export const projects: Project[] = [
     duration: '2025',
     type: 'Web Application',
     status: 'Completed',
+    liveUrl: 'https://clone-rust-psi.vercel.app/',
   },
 
   {
@@ -410,6 +412,7 @@ export const projects: Project[] = [
     duration: '2024',
     type: 'Desktop / Web System',
     status: 'Completed',
+    hideLiveDemo: true,
   },
 
   {
@@ -482,7 +485,7 @@ export const projects: Project[] = [
       {
         title: 'Scoring',
         description: 'Tracks points as you play',
-        icon: 'TrA classic Snake experience built with vanilla JavaScript DOM APIs.ophy',
+        icon: 'Trophy',
       },
       {
         title: 'Game State',
@@ -513,6 +516,7 @@ export const projects: Project[] = [
     duration: '2024',
     type: 'Browser Game',
     status: 'Completed',
+    liveUrl: 'https://arrow-kappa-ten.vercel.app/',
   },
 
   {
@@ -564,5 +568,6 @@ export const projects: Project[] = [
     duration: '2024',
     type: 'Desktop Application',
     status: 'Completed',
+    hideLiveDemo: true,
   },
 ]

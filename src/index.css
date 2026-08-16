@@ -30,7 +30,7 @@
   }
 
   html.light .glass {
-    @apply bg-white/80 border-slate-300/80 shadow-md shadow-slate-300/30;
+    @apply bg-white/80 border-slate-400/70 shadow-md shadow-slate-300/30;
   }
 
   .glass-card {
@@ -116,7 +116,7 @@
   }
 
   html.light .project-face {
-    @apply bg-white shadow-black/10 border-transparent;
+    @apply bg-white shadow-black/10 border-slate-400/60;
   }
 
   .project-face-front {
@@ -201,8 +201,9 @@ html.light .text-cyan-400 { color: rgb(14 116 144); }
 html.light .text-cyan-400\/90 { color: rgb(14 116 144 / 0.95); }
 html.light .hover\:text-cyan-400:hover { color: rgb(21 94 117); }
 
-html.light .border-white\/10 { border-color: rgb(203 213 225 / 0.9); }
-html.light .border-white\/20 { border-color: rgb(203 213 225); }
+html.light .border-white\/10 { border-color: rgb(100 116 139 / 0.55); }
+html.light .border-white\/15 { border-color: rgb(100 116 139 / 0.65); }
+html.light .border-white\/20 { border-color: rgb(71 85 105 / 0.55); }
 html.light .bg-white\/5 { background-color: rgb(255 255 255 / 0.9); }
 html.light .bg-white\/10 { background-color: rgb(255 255 255); }
 html.light .bg-black\/20 { background-color: rgb(203 213 225 / 0.4); }
