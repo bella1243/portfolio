@@ -91,6 +91,101 @@
   html.light .btn-secondary {
     @apply text-gray-800 hover:bg-white hover:text-gray-900 focus-visible:ring-offset-slate-200;
   }
+
+  .project-flip {
+    @apply relative w-full;
+    perspective: 1200px;
+  }
+
+  .project-flip-inner {
+    @apply relative h-full w-full;
+    transform-style: preserve-3d;
+    transition: transform 0.55s cubic-bezier(0.4, 0.2, 0.2, 1);
+  }
+
+  .project-flip:hover .project-flip-inner,
+  .project-flip.is-flipped .project-flip-inner,
+  .project-flip:focus-within .project-flip-inner {
+    transform: rotateY(180deg);
+  }
+
+  .project-face {
+    @apply absolute inset-0 overflow-hidden rounded-3xl bg-[#15151f] shadow-lg shadow-black/40 border border-white/10;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  html.light .project-face {
+    @apply bg-white shadow-black/10 border-transparent;
+  }
+
+  .project-face-front {
+    @apply flex items-center justify-center;
+  }
+
+  .project-face-back {
+    transform: rotateY(180deg);
+  }
+
+  .project-blob {
+    @apply absolute -bottom-10 -right-10 h-40 w-40 rounded-full;
+    background-color: color-mix(in srgb, var(--project-accent) 45%, #0a0a12 55%);
+    opacity: 0.85;
+    filter: blur(2px);
+  }
+
+  html.light .project-blob {
+    background-color: var(--project-accent);
+    opacity: 0.7;
+  }
+
+  .project-accent-chip {
+    background-color: color-mix(in srgb, var(--project-accent) 30%, #11111a 70%);
+  }
+
+  html.light .project-accent-chip {
+    background-color: color-mix(in srgb, var(--project-accent) 40%, white 60%);
+  }
+
+  .project-accent-btn {
+    background-color: color-mix(in srgb, var(--project-accent) 50%, #0a0a12 50%);
+  }
+
+  html.light .project-accent-btn {
+    background-color: var(--project-accent);
+  }
+
+  .project-card-title {
+    @apply text-gray-100;
+  }
+
+  html.light .project-card-title {
+    @apply text-slate-800;
+  }
+
+  .project-card-desc {
+    @apply text-gray-400;
+  }
+
+  html.light .project-card-desc {
+    @apply text-slate-600;
+  }
+
+  .project-card-icon {
+    @apply text-gray-100;
+  }
+
+  html.light .project-card-icon {
+    @apply text-slate-800;
+  }
+
+  .project-card-arrow-icon {
+    @apply text-gray-100;
+  }
+
+  html.light .project-card-arrow-icon {
+    @apply text-slate-900;
+  }
 }
 
 /* Light mode readability overrides */
@@ -129,6 +224,34 @@ html.light textarea::placeholder {
 html.light footer {
   border-color: rgb(203 213 225 / 0.8);
   background-color: rgb(203 213 225 / 0.3);
+}
+
+.project-detail-page {
+  background-color: #07070c;
+}
+
+.project-detail-topbar {
+  background-color: rgb(7 7 12 / 0.78);
+  border-bottom: 1px solid rgb(255 255 255 / 0.06);
+}
+
+.project-detail-cta {
+  background-color: #fff;
+  color: #0f172a;
+}
+
+html.light .project-detail-page {
+  background-color: rgb(241 245 249);
+}
+
+html.light .project-detail-topbar {
+  background-color: rgb(241 245 249 / 0.82);
+  border-bottom: 1px solid rgb(203 213 225 / 0.6);
+}
+
+html.light .project-detail-cta {
+  background-color: #0f172a;
+  color: #fff;
 }
 
 @media (prefers-reduced-motion: reduce) {

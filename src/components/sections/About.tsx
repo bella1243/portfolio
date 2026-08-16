@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { User, Target, Heart } from 'lucide-react'
-import SectionHeading from '../ui/SectionHeading'
+import { ArrowUpRight } from 'lucide-react'
 import { profile, stats } from '../../data/profile'
 
 function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
@@ -11,16 +10,13 @@ function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
 
   useEffect(() => {
     if (!isInView) return
-    let start = 0
-    const duration = 2000
+    const duration = 1800
     const startTime = performance.now()
 
     const animate = (currentTime: number) => {
-      const elapsed = currentTime - startTime
-      const progress = Math.min(elapsed / duration, 1)
+      const progress = Math.min((currentTime - startTime) / duration, 1)
       const eased = 1 - Math.pow(1 - progress, 3)
-      start = Math.floor(eased * value)
-      setCount(start)
+      setCount(Math.floor(eased * value))
       if (progress < 1) requestAnimationFrame(animate)
     }
 
@@ -38,90 +34,132 @@ function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
 export default function About() {
   return (
     <section id="about" className="section-padding relative" aria-label="About me">
-      <div className="max-w-7xl mx-auto">
-        <SectionHeading
-          title="About Me"
-          subtitle="Engineer, innovator, and lifelong learner passionate about technology"
-          icon={User}
-        />
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.5 }}
+          className="mb-14 md:mb-20"
+        >
+          <h2 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.02] mb-8 sm:mb-10">
+            <span className="gradient-text">About Me</span>
+          </h2>
+          <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-8 lg:gap-16 items-end">
+            <p className="font-display text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight leading-snug text-gray-100">
+              Engineer focused on{' '}
+              <span className="text-cyan-400">intelligent systems</span>
+            </p>
+            <p className="text-gray-400 text-base sm:text-lg leading-relaxed max-w-md lg:pb-1">
+              Curious builder at the intersection of hardware, software, and AI —
+              always shipping things that matter in the real world.
+            </p>
+          </div>
+        </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 mb-16">
+        {/* Bio + goals */}
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 mb-16 md:mb-24">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="glass-card"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.45 }}
           >
-            <h3 className="font-display text-xl font-semibold mb-4 flex items-center gap-2">
-              <User className="w-5 h-5 text-cyan-400" />
-              Professional Biography
-            </h3>
-            <p className="text-gray-400 leading-relaxed">{profile.bio}</p>
+            <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-gray-500 mb-4">
+              Biography
+            </p>
+            <p className="text-gray-300 text-lg sm:text-xl leading-relaxed font-display">
+              {profile.bio}
+            </p>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="glass-card"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.45, delay: 0.08 }}
+            className="relative"
           >
-            <h3 className="font-display text-xl font-semibold mb-4 flex items-center gap-2">
-              <Target className="w-5 h-5 text-cyan-400" />
-              Career Goals
-            </h3>
-            <p className="text-gray-400 leading-relaxed">{profile.careerGoals}</p>
+            <div
+              className="absolute -left-4 top-0 bottom-0 w-px bg-gradient-to-b from-cyan-500/50 via-cyan-500/15 to-transparent hidden lg:block"
+              aria-hidden
+            />
+            <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-gray-500 mb-4 lg:pl-6">
+              Direction
+            </p>
+            <p className="text-gray-400 text-base sm:text-lg leading-relaxed lg:pl-6">
+              {profile.careerGoals}
+            </p>
           </motion.div>
         </div>
 
+        {/* Stats strip */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="glass-card mb-16"
+          transition={{ duration: 0.45 }}
+          className="mb-16 md:mb-24 rounded-3xl border border-white/10 bg-white/[0.03] px-6 py-8 sm:px-10 sm:py-10"
         >
-          <h3 className="font-display text-xl font-semibold mb-6 flex items-center justify-center gap-2">
-            <Heart className="w-5 h-5 text-cyan-400" />
-            Personal Interests
-          </h3>
-          <div className="flex flex-wrap justify-center gap-3">
-            {profile.interests.map((interest, i) => (
-              <motion.span
-                key={interest}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                whileHover={{ scale: 1.05, borderColor: 'rgba(6,182,212,0.5)' }}
-                className="px-4 py-2 rounded-full glass text-sm text-gray-300 border border-white/10 cursor-default"
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-4">
+            {stats.map((stat, i) => (
+              <div
+                key={stat.label}
+                className={`text-center sm:text-left ${
+                  i > 0 ? 'sm:border-l sm:border-white/10 sm:pl-8' : ''
+                }`}
               >
-                {interest}
-              </motion.span>
+                <div className="font-display text-4xl sm:text-5xl font-bold gradient-text mb-2 tabular-nums">
+                  <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+                </div>
+                <p className="text-sm text-gray-500 tracking-wide">{stat.label}</p>
+              </div>
             ))}
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-          {stats.map((stat, i) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              whileHover={{ y: -5 }}
-              className="glass-card text-center group"
-            >
-              <div className="font-display text-4xl md:text-5xl font-bold gradient-text mb-2">
-                <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-              </div>
-              <p className="text-gray-400 text-sm group-hover:text-gray-300 transition-colors">
-                {stat.label}
+        {/* Interests */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.45 }}
+        >
+          <div className="flex flex-wrap items-end justify-between gap-4 mb-7">
+            <div>
+              <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-cyan-400 mb-2">
+                Focus areas
               </p>
-            </motion.div>
-          ))}
-        </div>
+              <h3 className="font-display text-2xl sm:text-3xl font-semibold tracking-tight">
+                What I care about
+              </h3>
+            </div>
+            <a
+              href="#projects"
+              className="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-cyan-400 transition-colors"
+            >
+              See the work
+              <ArrowUpRight className="w-4 h-4" />
+            </a>
+          </div>
+
+          <ul className="flex flex-wrap gap-2.5">
+            {profile.interests.map((interest, i) => (
+              <motion.li
+                key={interest}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.04, duration: 0.3 }}
+              >
+                <span className="inline-flex items-center rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm text-gray-300 transition-colors hover:border-cyan-500/35 hover:text-cyan-300 hover:bg-cyan-500/5">
+                  {interest}
+                </span>
+              </motion.li>
+            ))}
+          </ul>
+        </motion.div>
       </div>
     </section>
   )

@@ -20,6 +20,7 @@ export const profile = {
     'Chess',
   ],
   email: 'abelbekanagot@gmail.com',
+  phone: '+251966871742',
   linkedin: 'https://www.linkedin.com/in/abel-bekana-b42100285/',
   github: 'https://github.com/bella1243',
   location: 'Anywhere you are',

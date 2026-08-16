@@ -3,6 +3,7 @@ import AnimatedBackground from './components/ui/AnimatedBackground'
 import CustomCursor from './components/ui/CustomCursor'
 import ScrollProgress from './components/ui/ScrollProgress'
 import BackToTop from './components/ui/BackToTop'
+import FloatingContact from './components/ui/FloatingContact'
 import LoadingScreen from './components/ui/LoadingScreen'
 import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
@@ -28,6 +29,7 @@ function App() {
       <AnimatedBackground />
       <CustomCursor />
       <ScrollProgress />
+      <FloatingContact />
       <BackToTop />
 
       <a

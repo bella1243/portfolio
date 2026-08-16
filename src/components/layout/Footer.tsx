@@ -61,9 +61,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+        <div className="pt-8 border-t border-white/10 flex justify-center text-sm text-gray-500">
           <p>&copy; {new Date().getFullYear()} {profile.name}. All rights reserved.</p>
-          <p className="text-xs">Built with React, Tailwind CSS & Framer Motion</p>
         </div>
       </div>
     </footer>
