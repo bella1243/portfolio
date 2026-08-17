@@ -46,7 +46,7 @@ export default function Skills() {
                 onClick={() => setActiveCategory(i)}
                 className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-medium transition-all ${
                   activeCategory === i
-                    ? 'bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-500/40 text-cyan-400'
+                    ? 'bg-gradient-to-r from-amber-500/20 to-amber-500/20 border border-amber-500/40 text-amber-400'
                     : 'glass text-gray-400 hover:text-gray-200'
                 }`}
               >
@@ -65,8 +65,8 @@ export default function Skills() {
           className="glass-card"
         >
           <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
-            <div className="p-3 rounded-xl bg-cyan-500/10 border border-cyan-500/20">
-              <ActiveIcon className="w-6 h-6 text-cyan-400" />
+            <div className="p-3 rounded-xl bg-amber-500/10 border border-amber-500/20">
+              <ActiveIcon className="w-6 h-6 text-amber-400" />
             </div>
             <h3 className="font-display text-xl font-semibold text-gray-100">
               {skillCategories[activeCategory].title}
@@ -81,12 +81,12 @@ export default function Skills() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: i * 0.04, type: 'spring', stiffness: 260, damping: 20 }}
                 whileHover={{ scale: 1.06, y: -3 }}
-                className="group relative px-5 py-3 rounded-xl glass border border-white/10 hover:border-cyan-500/40 transition-all cursor-default overflow-hidden"
+                className="group relative px-5 py-3 rounded-xl glass border border-white/10 hover:border-amber-500/40 transition-all cursor-default overflow-hidden"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/0 via-cyan-500/5 to-blue-500/0 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute inset-0 bg-gradient-to-r from-amber-500/0 via-amber-500/5 to-amber-500/0 opacity-0 group-hover:opacity-100 transition-opacity" />
                 <div className="relative flex items-center gap-2">
-                  <Sparkles className="w-3.5 h-3.5 text-cyan-400/60 group-hover:text-cyan-400 transition-colors" />
-                  <span className="font-medium text-gray-200 group-hover:text-cyan-400 transition-colors">
+                  <Sparkles className="w-3.5 h-3.5 text-amber-400/60 group-hover:text-amber-400 transition-colors" />
+                  <span className="font-medium text-gray-200 group-hover:text-amber-400 transition-colors">
                     {skill}
                   </span>
                 </div>

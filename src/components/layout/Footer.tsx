@@ -21,7 +21,7 @@ export default function Footer() {
               "Building technology that creates real-world impact."
             </p>
             <div className="flex items-center gap-2 mt-4 text-gray-500 text-sm">
-              <MapPin className="w-4 h-4 text-cyan-400" />
+              <MapPin className="w-4 h-4 text-amber-400" />
               {profile.footerLocation}
             </div>
           </div>
@@ -33,7 +33,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-sm text-gray-400 hover:text-cyan-400 transition-colors"
+                    className="text-sm text-gray-400 hover:text-amber-400 transition-colors"
                   >
                     {link.label}
                   </a>
@@ -52,7 +52,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="p-3 rounded-xl glass hover:border-cyan-500/30 hover:text-cyan-400 transition-all"
+                  className="p-3 rounded-xl glass hover:border-amber-500/30 hover:text-amber-400 transition-all"
                 >
                   <Icon className="w-5 h-5" />
                 </a>

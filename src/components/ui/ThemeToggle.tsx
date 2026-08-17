@@ -13,7 +13,7 @@ export default function ThemeToggle({ theme, onToggle }: ThemeToggleProps) {
       whileTap={{ scale: 0.95 }}
       onClick={onToggle}
       aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-      className="relative p-2.5 rounded-xl glass hover:border-cyan-500/30 transition-colors"
+      className="relative p-2.5 rounded-xl glass hover:border-amber-500/30 transition-colors"
     >
       <motion.div
         initial={false}
@@ -21,7 +21,7 @@ export default function ThemeToggle({ theme, onToggle }: ThemeToggleProps) {
         transition={{ duration: 0.3 }}
       >
         {theme === 'dark' ? (
-          <Moon className="w-5 h-5 text-cyan-400" />
+          <Moon className="w-5 h-5 text-amber-400" />
         ) : (
           <Sun className="w-5 h-5 text-amber-500" />
         )}

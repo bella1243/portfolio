@@ -49,11 +49,10 @@ export default function About() {
           <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-8 lg:gap-16 items-end">
             <p className="font-display text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight leading-snug text-gray-100">
               Engineer focused on{' '}
-              <span className="text-cyan-400">intelligent systems</span>
+              <span className="text-amber-400">intelligent systems</span>
             </p>
             <p className="text-gray-400 text-base sm:text-lg leading-relaxed max-w-md lg:pb-1">
-              Curious builder at the intersection of hardware, software, and AI —
-              always shipping things that matter in the real world.
+              Curious builder at the intersection of hardware, software, and AI always shipping things that matter in the real world.
             </p>
           </div>
         </motion.div>
@@ -82,7 +81,7 @@ export default function About() {
             className="relative"
           >
             <div
-              className="absolute -left-4 top-0 bottom-0 w-px bg-gradient-to-b from-cyan-500/50 via-cyan-500/15 to-transparent hidden lg:block"
+              className="absolute -left-4 top-0 bottom-0 w-px bg-gradient-to-b from-amber-500/50 via-amber-500/15 to-transparent hidden lg:block"
               aria-hidden
             />
             <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-gray-500 mb-4 lg:pl-6">
@@ -128,7 +127,7 @@ export default function About() {
         >
           <div className="flex flex-wrap items-end justify-between gap-4 mb-7">
             <div>
-              <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-cyan-400 mb-2">
+              <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-amber-400 mb-2">
                 Focus areas
               </p>
               <h3 className="font-display text-2xl sm:text-3xl font-semibold tracking-tight">
@@ -137,7 +136,7 @@ export default function About() {
             </div>
             <a
               href="#projects"
-              className="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-cyan-400 transition-colors"
+              className="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-amber-400 transition-colors"
             >
               See the work
               <ArrowUpRight className="w-4 h-4" />
@@ -153,7 +152,7 @@ export default function About() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.04, duration: 0.3 }}
               >
-                <span className="inline-flex items-center rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm text-gray-300 transition-colors hover:border-cyan-500/35 hover:text-cyan-300 hover:bg-cyan-500/5">
+                <span className="inline-flex items-center rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm text-gray-300 transition-colors hover:border-amber-500/35 hover:text-amber-300 hover:bg-amber-500/5">
                   {interest}
                 </span>
               </motion.li>

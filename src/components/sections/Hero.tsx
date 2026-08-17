@@ -20,11 +20,6 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
           >
-            <p className="inline-flex items-center gap-2 text-xs font-medium tracking-wide text-emerald-400 mb-6">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              Available for opportunities
-            </p>
-
             <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] mb-5">
               Hi, I&apos;m{' '}
               <span className="gradient-text">{profile.name}</span>
@@ -66,7 +61,7 @@ export default function Hero() {
                 className="absolute -inset-6 rounded-[2rem] opacity-40 blur-3xl pointer-events-none"
                 style={{
                   background:
-                    'radial-gradient(circle at 50% 40%, rgba(34,211,238,0.35), transparent 65%)',
+                    'radial-gradient(circle at 50% 40%, rgba(245,158,11,0.35), transparent 65%)',
                 }}
                 aria-hidden
               />
@@ -88,7 +83,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 text-gray-500 hover:text-cyan-400 transition-colors"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 text-gray-500 hover:text-amber-400 transition-colors"
         aria-label="Scroll to about"
       >
         <span className="text-[10px] uppercase tracking-[0.2em]">Scroll</span>

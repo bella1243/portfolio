@@ -9,7 +9,7 @@ export const profile = {
     'Electrical and Computer Engineer passionate about Artificial Intelligence, networking, and emerging technologies. I enjoy building innovative solutions that solve real world problems and continuously expanding my knowledge in technology.',
   bio: `I'm a dedicated Engineer with a focus on AI systems. My journey in technology has been driven by curiosity and a desire to create meaningful impact through innovation.`,
   careerGoals:
-    'I aspire to work at the intersection of hardware and software—designing intelligent systems that connect the physical and digital worlds. My goal is to contribute to cutting-edge projects in IoT, AI, and network infrastructure while continuing to grow as an engineer and leader.',
+    'I aspire to work at the intersection of hardware and software designing intelligent systems that connect the physical and digital worlds. My goal is to contribute to cutting-edge projects in IoT, AI, and network infrastructure while continuing to grow as an engineer and leader.',
   interests: [
     'Artificial Intelligence',
     'Software Development',

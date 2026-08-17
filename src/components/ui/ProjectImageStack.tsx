@@ -34,7 +34,7 @@ export default function ProjectImageStack({
               className="w-16 h-16 rounded-2xl flex items-center justify-center border border-white/15"
               style={{ backgroundColor: `${accent}33` }}
             >
-              <Icon className="w-8 h-8 text-cyan-400" />
+              <Icon className="w-8 h-8 text-amber-400" />
             </div>
             <div className="flex items-center gap-2 text-xs">
               <ImageIcon className="w-3.5 h-3.5" />
@@ -111,7 +111,7 @@ export default function ProjectImageStack({
                   else if (side === 'left') goPrev()
                   else goNext()
                 }}
-                className="absolute inset-0 overflow-hidden rounded-2xl border border-white/15 bg-black/30 shadow-[0_20px_45px_rgba(0,0,0,0.4)] text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+                className="absolute inset-0 overflow-hidden rounded-2xl border border-white/15 bg-black/30 shadow-[0_20px_45px_rgba(0,0,0,0.4)] text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
                 aria-label={
                   isFront
                     ? `View full photo ${imageIndex + 1}`
@@ -166,7 +166,7 @@ export default function ProjectImageStack({
                 onClick={() => setActive(i)}
                 aria-label={`Go to photo ${i + 1}`}
                 className={`h-1.5 rounded-full transition-all ${
-                  i === active ? 'w-6 bg-cyan-400' : 'w-1.5 bg-white/25 hover:bg-white/40'
+                  i === active ? 'w-6 bg-amber-400' : 'w-1.5 bg-white/25 hover:bg-white/40'
                 }`}
               />
             ))}

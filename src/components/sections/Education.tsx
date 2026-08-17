@@ -37,7 +37,7 @@ export default function Education() {
         <div className="grid lg:grid-cols-2 gap-12">
           <div>
             <h3 className="font-display text-2xl font-semibold mb-6 flex items-center gap-2">
-              <GraduationCap className="w-6 h-6 text-cyan-400" />
+              <GraduationCap className="w-6 h-6 text-amber-400" />
               Education
             </h3>
             <div className="space-y-4">
@@ -53,8 +53,8 @@ export default function Education() {
                     whileHover={{ x: 5 }}
                     className="glass-card flex items-start gap-4"
                   >
-                    <div className="p-3 rounded-xl bg-cyan-500/10 border border-cyan-500/20">
-                      <Icon className="w-6 h-6 text-cyan-400" />
+                    <div className="p-3 rounded-xl bg-amber-500/10 border border-amber-500/20">
+                      <Icon className="w-6 h-6 text-amber-400" />
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-200">{item.title}</h4>
@@ -70,7 +70,7 @@ export default function Education() {
 
           <div>
             <h3 className="font-display text-2xl font-semibold mb-6 flex items-center gap-2">
-              <Award className="w-6 h-6 text-cyan-400" />
+              <Award className="w-6 h-6 text-amber-400" />
               Certifications
             </h3>
             <div className="grid sm:grid-cols-2 gap-4">
@@ -86,7 +86,7 @@ export default function Education() {
                     whileHover={{ scale: 1.03, y: -3 }}
                     className="glass-card text-center"
                   >
-                    <Icon className="w-8 h-8 text-cyan-400 mx-auto mb-3" />
+                    <Icon className="w-8 h-8 text-amber-400 mx-auto mb-3" />
                     <h4 className="font-medium text-sm text-gray-300 leading-snug">
                       {item.title}
                     </h4>

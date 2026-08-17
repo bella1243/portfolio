@@ -211,7 +211,7 @@ export default function ProjectModal({ project, Icon, onClose }: ProjectModalPro
                   }`}
                 >
                   <div>
-                    <p className="text-[11px] font-semibold tracking-[0.24em] uppercase text-cyan-400 mb-5">
+                    <p className="text-[11px] font-semibold tracking-[0.24em] uppercase text-amber-400 mb-5">
                       Project
                     </p>
                     <h1
@@ -263,7 +263,7 @@ export default function ProjectModal({ project, Icon, onClose }: ProjectModalPro
 
               {/* Overview */}
               <section className="pb-14 max-w-2xl">
-                <h2 className="text-[11px] font-semibold tracking-[0.24em] uppercase text-cyan-400 mb-5">
+                <h2 className="text-[11px] font-semibold tracking-[0.24em] uppercase text-amber-400 mb-5">
                   Overview
                 </h2>
                 <div className="space-y-5">
@@ -282,7 +282,7 @@ export default function ProjectModal({ project, Icon, onClose }: ProjectModalPro
               {project.features.length > 0 && (
                 <section>
                   <div className="flex items-end justify-between gap-4 mb-8">
-                    <h2 className="text-[11px] font-semibold tracking-[0.24em] uppercase text-cyan-400">
+                    <h2 className="text-[11px] font-semibold tracking-[0.24em] uppercase text-amber-400">
                       Key Features
                     </h2>
                     <p className="hidden sm:block text-sm text-gray-500">
@@ -299,7 +299,7 @@ export default function ProjectModal({ project, Icon, onClose }: ProjectModalPro
                           whileInView={{ opacity: 1, y: 0 }}
                           viewport={{ once: true, margin: '-40px' }}
                           transition={{ duration: 0.35, delay: i * 0.04 }}
-                          className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.035] p-5 sm:p-6 backdrop-blur-sm transition-colors hover:border-cyan-500/25 hover:bg-white/[0.06]"
+                          className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.035] p-5 sm:p-6 backdrop-blur-sm transition-colors hover:border-amber-500/25 hover:bg-white/[0.06]"
                         >
                           <div
                             className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full opacity-0 blur-2xl transition-opacity group-hover:opacity-40"
@@ -310,7 +310,7 @@ export default function ProjectModal({ project, Icon, onClose }: ProjectModalPro
                             className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl border border-white/10"
                             style={{ backgroundColor: `${project.accent}22` }}
                           >
-                            <FeatureIcon className="h-5 w-5 text-cyan-400" />
+                            <FeatureIcon className="h-5 w-5 text-amber-400" />
                           </div>
                           <h3 className="font-display text-base font-semibold text-gray-100 mb-2">
                             {feature.title}

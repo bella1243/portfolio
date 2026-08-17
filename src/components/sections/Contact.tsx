@@ -67,8 +67,8 @@ export default function Contact() {
                 transition={{ delay: i * 0.1 }}
                 className="glass-card flex items-center gap-4"
               >
-                <div className="p-3 rounded-xl bg-cyan-500/10 border border-cyan-500/20">
-                  <info.icon className="w-6 h-6 text-cyan-400" />
+                <div className="p-3 rounded-xl bg-amber-500/10 border border-amber-500/20">
+                  <info.icon className="w-6 h-6 text-amber-400" />
                 </div>
                 <div>
                   <p className="text-sm text-gray-500">{info.label}</p>
@@ -77,7 +77,7 @@ export default function Contact() {
                       href={info.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-200 hover:text-cyan-400 transition-colors font-medium"
+                      className="text-gray-200 hover:text-amber-400 transition-colors font-medium"
                     >
                       {info.value}
                     </a>
@@ -107,7 +107,7 @@ export default function Contact() {
                 required
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-gray-100 placeholder-gray-600 focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/30 transition-colors"
+                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-gray-100 placeholder-gray-600 focus:outline-none focus:border-amber-500/50 focus:ring-1 focus:ring-amber-500/30 transition-colors"
                 placeholder="Your name"
               />
             </div>
@@ -122,7 +122,7 @@ export default function Contact() {
                 required
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-gray-100 placeholder-gray-600 focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/30 transition-colors"
+                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-gray-100 placeholder-gray-600 focus:outline-none focus:border-amber-500/50 focus:ring-1 focus:ring-amber-500/30 transition-colors"
                 placeholder="your@email.com"
               />
             </div>
@@ -137,7 +137,7 @@ export default function Contact() {
                 required
                 value={formData.subject}
                 onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-gray-100 placeholder-gray-600 focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/30 transition-colors"
+                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-gray-100 placeholder-gray-600 focus:outline-none focus:border-amber-500/50 focus:ring-1 focus:ring-amber-500/30 transition-colors"
                 placeholder="What's this about?"
               />
             </div>
@@ -152,7 +152,7 @@ export default function Contact() {
                 rows={5}
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-gray-100 placeholder-gray-600 focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/30 transition-colors resize-none"
+                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-gray-100 placeholder-gray-600 focus:outline-none focus:border-amber-500/50 focus:ring-1 focus:ring-amber-500/30 transition-colors resize-none"
                 placeholder="Your message..."
               />
             </div>

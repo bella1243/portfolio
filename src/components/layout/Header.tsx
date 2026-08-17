@@ -44,13 +44,13 @@ export default function Header({ activeSection, theme, onToggleTheme }: HeaderPr
                 <a
                   href={link.href}
                   className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    isActive ? 'text-cyan-400' : 'text-gray-400 hover:text-gray-100'
+                    isActive ? 'text-amber-400' : 'text-gray-400 hover:text-gray-100'
                   }`}
                 >
                   {isActive && (
                     <motion.span
                       layoutId="activeNav"
-                      className="absolute inset-0 bg-cyan-500/10 rounded-lg border border-cyan-500/20"
+                      className="absolute inset-0 bg-amber-500/10 rounded-lg border border-amber-500/20"
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -88,7 +88,7 @@ export default function Header({ activeSection, theme, onToggleTheme }: HeaderPr
                   <a
                     href={link.href}
                     onClick={handleNavClick}
-                    className="block px-4 py-3 rounded-lg text-gray-300 hover:bg-white/5 hover:text-cyan-400 transition-colors"
+                    className="block px-4 py-3 rounded-lg text-gray-300 hover:bg-white/5 hover:text-amber-400 transition-colors"
                   >
                     {link.label}
                   </a>

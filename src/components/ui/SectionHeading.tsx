@@ -21,9 +21,9 @@ export default function SectionHeading({ title, subtitle, icon: Icon }: SectionH
           initial={{ scale: 0 }}
           whileInView={{ scale: 1 }}
           viewport={{ once: true }}
-          className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 mb-4"
+          className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 mb-4"
         >
-          <Icon className="w-6 h-6 text-cyan-400" />
+          <Icon className="w-6 h-6 text-amber-400" />
         </motion.div>
       )}
       <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
@@ -33,7 +33,7 @@ export default function SectionHeading({ title, subtitle, icon: Icon }: SectionH
         {subtitle}
       </p>
       <div className="mt-6 flex justify-center">
-        <div className="h-1 w-24 bg-gradient-to-r from-transparent via-cyan-500 to-transparent rounded-full" />
+        <div className="h-1 w-24 bg-gradient-to-r from-transparent via-amber-500 to-transparent rounded-full" />
       </div>
     </motion.div>
   )

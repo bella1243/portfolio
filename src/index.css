@@ -16,11 +16,11 @@
   }
 
   ::selection {
-    @apply bg-cyan-500/30 text-white;
+    @apply bg-amber-500/30 text-white;
   }
 
   html.light ::selection {
-    @apply bg-cyan-500/25 text-gray-900;
+    @apply bg-amber-500/25 text-gray-900;
   }
 }
 
@@ -38,15 +38,15 @@
   }
 
   .glass-card:hover {
-    @apply bg-white/10 border-cyan-500/30 shadow-lg shadow-cyan-500/5;
+    @apply bg-white/10 border-amber-500/30 shadow-lg shadow-amber-500/5;
   }
 
   html.light .glass-card:hover {
-    @apply bg-white border-cyan-500/40 shadow-lg shadow-slate-400/25;
+    @apply bg-white border-amber-500/40 shadow-lg shadow-slate-400/25;
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-amber-200 via-amber-400 to-yellow-500 bg-clip-text text-transparent;
   }
 
   .profile-image-blend {
@@ -61,7 +61,7 @@
   }
 
   html.light .gradient-text {
-    @apply from-cyan-600 via-blue-700 to-purple-700;
+    @apply from-amber-700 via-amber-600 to-yellow-600;
   }
 
   .section-padding {
@@ -70,11 +70,11 @@
 
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-medium
-           bg-gradient-to-r from-cyan-500 to-blue-600 text-white
-           hover:from-cyan-400 hover:to-blue-500
-           transition-all duration-300 shadow-lg shadow-cyan-500/25
-           hover:shadow-cyan-500/40 hover:-translate-y-0.5
-           focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f];
+           bg-gradient-to-r from-amber-500 to-amber-600 text-white
+           hover:from-amber-400 hover:to-amber-500
+           transition-all duration-300 shadow-lg shadow-amber-500/25
+           hover:shadow-amber-500/40 hover:-translate-y-0.5
+           focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f];
   }
 
   html.light .btn-primary {
@@ -83,9 +83,9 @@
 
   .btn-secondary {
     @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-medium
-           glass text-gray-100 hover:bg-white/10 hover:border-cyan-500/40
+           glass text-gray-100 hover:bg-white/10 hover:border-amber-500/40
            transition-all duration-300 hover:-translate-y-0.5
-           focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f];
+           focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f];
   }
 
   html.light .btn-secondary {
@@ -197,9 +197,10 @@ html.light .text-gray-500 { color: rgb(75 85 99); }
 html.light .hover\:text-gray-100:hover { color: rgb(17 24 39); }
 html.light .hover\:text-gray-200:hover { color: rgb(31 41 55); }
 html.light .hover\:text-gray-300:hover { color: rgb(55 65 81); }
-html.light .text-cyan-400 { color: rgb(14 116 144); }
-html.light .text-cyan-400\/90 { color: rgb(14 116 144 / 0.95); }
-html.light .hover\:text-cyan-400:hover { color: rgb(21 94 117); }
+html.light .text-amber-400 { color: rgb(180 83 9); }
+html.light .text-amber-400\/90 { color: rgb(180 83 9 / 0.95); }
+html.light .hover\:text-amber-400:hover { color: rgb(146 64 14); }
+html.light .text-amber-300 { color: rgb(180 83 9); }
 
 html.light .border-white\/10 { border-color: rgb(100 116 139 / 0.55); }
 html.light .border-white\/15 { border-color: rgb(100 116 139 / 0.65); }

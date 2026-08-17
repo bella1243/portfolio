@@ -90,15 +90,15 @@ export default function AnimatedBackground() {
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
       <div className="absolute inset-0 bg-[#0a0a0f] [.light_&]:bg-slate-200" />
-      <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-transparent to-purple-500/5 animate-gradient-shift bg-[length:400%_400%] [.light_&]:from-cyan-500/10 [.light_&]:to-purple-500/10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 via-transparent to-amber-500/5 animate-gradient-shift bg-[length:400%_400%] [.light_&]:from-amber-500/10 [.light_&]:to-amber-500/10" />
       <canvas ref={canvasRef} className="absolute inset-0 opacity-60 [.light_&]:opacity-20" aria-hidden="true" />
       <motion.div
-        className="absolute top-1/4 -left-32 w-96 h-96 rounded-full bg-cyan-500/10 blur-3xl [.light_&]:bg-cyan-500/5"
+        className="absolute top-1/4 -left-32 w-96 h-96 rounded-full bg-amber-500/10 blur-3xl [.light_&]:bg-amber-500/5"
         animate={{ x: [0, 50, 0], y: [0, 30, 0] }}
         transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
       />
       <motion.div
-        className="absolute bottom-1/4 -right-32 w-96 h-96 rounded-full bg-purple-500/10 blur-3xl [.light_&]:bg-purple-500/5"
+        className="absolute bottom-1/4 -right-32 w-96 h-96 rounded-full bg-amber-500/10 blur-3xl [.light_&]:bg-amber-500/5"
         animate={{ x: [0, -50, 0], y: [0, -30, 0] }}
         transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
       />
