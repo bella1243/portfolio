@@ -17,7 +17,7 @@ export const profile = {
     'Networking & Infrastructure',
     'Cybersecurity',
     'Emerging Technologies',
-    'Chess',
+    
   ],
   email: 'abelbekanagot@gmail.com',
   phone: '+251966871742',
