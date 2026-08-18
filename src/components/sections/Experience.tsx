@@ -23,9 +23,8 @@ export default function Experience() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.6, delay: i * 0.15 }}
-              className={`relative flex items-center gap-8 mb-12 ${
-                i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-              }`}
+              className={`relative flex items-center gap-8 mb-12 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                }`}
             >
               <div className="hidden md:block md:w-1/2" />
 

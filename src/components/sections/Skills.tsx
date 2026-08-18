@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { motion } from 'framer-motion'
 import {
   Code2,
   Globe,
@@ -33,18 +32,18 @@ export default function Skills() {
           title="Skills & Expertise"
           subtitle="Technical proficiencies across programming, networking, cybersecurity, and engineering"
           icon={Code2}
+          animated={false}
         />
 
         <div className="flex flex-wrap justify-center gap-3 mb-10">
           {skillCategories.map((cat, i) => {
             const Icon = iconMap[cat.icon] || Code2
             return (
-              <motion.button
+              <button
                 key={cat.title}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                type="button"
                 onClick={() => setActiveCategory(i)}
-                className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-medium transition-all ${
+                className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-medium transition-colors ${
                   activeCategory === i
                     ? 'bg-gradient-to-r from-amber-500/20 to-amber-500/20 border border-amber-500/40 text-amber-400'
                     : 'glass text-gray-400 hover:text-gray-200'
@@ -52,18 +51,12 @@ export default function Skills() {
               >
                 <Icon className="w-4 h-4" />
                 {cat.title}
-              </motion.button>
+              </button>
             )
           })}
         </div>
 
-        <motion.div
-          key={activeCategory}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          className="glass-card"
-        >
+        <div className="glass-card">
           <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
             <div className="p-3 rounded-xl bg-amber-500/10 border border-amber-500/20">
               <ActiveIcon className="w-6 h-6 text-amber-400" />
@@ -74,14 +67,10 @@ export default function Skills() {
           </div>
 
           <div className="flex flex-wrap justify-center gap-3">
-            {skillCategories[activeCategory].skills.map((skill, i) => (
-              <motion.div
+            {skillCategories[activeCategory].skills.map((skill) => (
+              <div
                 key={skill}
-                initial={{ opacity: 0, scale: 0.85 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: i * 0.04, type: 'spring', stiffness: 260, damping: 20 }}
-                whileHover={{ scale: 1.06, y: -3 }}
-                className="group relative px-5 py-3 rounded-xl glass border border-white/10 hover:border-amber-500/40 transition-all cursor-default overflow-hidden"
+                className="group relative px-5 py-3 rounded-xl glass border border-white/10 hover:border-amber-500/40 transition-colors cursor-default overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-amber-500/0 via-amber-500/5 to-amber-500/0 opacity-0 group-hover:opacity-100 transition-opacity" />
                 <div className="relative flex items-center gap-2">
@@ -90,10 +79,10 @@ export default function Skills() {
                     {skill}
                   </span>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

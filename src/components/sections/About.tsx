@@ -105,9 +105,8 @@ export default function About() {
             {stats.map((stat, i) => (
               <div
                 key={stat.label}
-                className={`text-center sm:text-left ${
-                  i > 0 ? 'sm:border-l sm:border-white/10 sm:pl-8' : ''
-                }`}
+                className={`text-center sm:text-left ${i > 0 ? 'sm:border-l sm:border-white/10 sm:pl-8' : ''
+                  }`}
               >
                 <div className="font-display text-4xl sm:text-5xl font-bold gradient-text mb-2 tabular-nums">
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />

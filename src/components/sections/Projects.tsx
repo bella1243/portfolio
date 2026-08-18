@@ -45,23 +45,23 @@ export default function Projects() {
           {projects
             .filter((project) => !project.hidden)
             .map((project, i) => {
-            const Icon = iconMap[project.icon] || FolderKanban
-            return (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.5, delay: i * 0.06 }}
-              >
-                <ProjectCard
-                  project={project}
-                  Icon={Icon}
-                  onOpenDetails={() => setSelected(project)}
-                />
-              </motion.div>
-            )
-          })}
+              const Icon = iconMap[project.icon] || FolderKanban
+              return (
+                <motion.div
+                  key={project.title}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-50px' }}
+                  transition={{ duration: 0.5, delay: i * 0.06 }}
+                >
+                  <ProjectCard
+                    project={project}
+                    Icon={Icon}
+                    onOpenDetails={() => setSelected(project)}
+                  />
+                </motion.div>
+              )
+            })}
         </div>
       </div>
 

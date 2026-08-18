@@ -206,9 +206,8 @@ export default function ProjectModal({ project, Icon, onClose }: ProjectModalPro
               {/* Hero: title left, photos right */}
               <section className="pt-4 pb-16 lg:pb-20">
                 <div
-                  className={`grid gap-12 lg:gap-10 items-center ${
-                    !project.hideImages ? 'lg:grid-cols-2' : ''
-                  }`}
+                  className={`grid gap-12 lg:gap-10 items-center ${!project.hideImages ? 'lg:grid-cols-2' : ''
+                    }`}
                 >
                   <div>
                     <p className="text-[11px] font-semibold tracking-[0.24em] uppercase text-amber-400 mb-5">
@@ -221,9 +220,8 @@ export default function ProjectModal({ project, Icon, onClose }: ProjectModalPro
                       {project.title}
                     </h1>
                     <p
-                      className={`text-gray-400 text-base sm:text-lg leading-relaxed max-w-md ${
-                        !project.hideLiveDemo ? 'mb-9' : ''
-                      }`}
+                      className={`text-gray-400 text-base sm:text-lg leading-relaxed max-w-md ${!project.hideLiveDemo ? 'mb-9' : ''
+                        }`}
                     >
                       {project.tagline}
                     </p>
