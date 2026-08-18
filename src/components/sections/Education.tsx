@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import {
   GraduationCap,
   Factory,
@@ -32,6 +31,7 @@ export default function Education() {
           title="Education & Certifications"
           subtitle="Academic background and professional qualifications"
           icon={BookOpen}
+          animated={false}
         />
 
         <div className="grid lg:grid-cols-2 gap-12">
@@ -41,16 +41,11 @@ export default function Education() {
               Education
             </h3>
             <div className="space-y-4">
-              {education.map((item, i) => {
+              {education.map((item) => {
                 const Icon = iconMap[item.icon] || GraduationCap
                 return (
-                  <motion.div
+                  <div
                     key={item.title}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1 }}
-                    whileHover={{ x: 5 }}
                     className="glass-card flex items-start gap-4"
                   >
                     <div className="p-3 rounded-xl bg-amber-500/10 border border-amber-500/20">
@@ -62,7 +57,7 @@ export default function Education() {
                         <p className="text-sm text-gray-500 mt-1">{item.institution}</p>
                       )}
                     </div>
-                  </motion.div>
+                  </div>
                 )
               })}
             </div>
@@ -74,23 +69,18 @@ export default function Education() {
               Certifications
             </h3>
             <div className="grid sm:grid-cols-2 gap-4">
-              {certifications.map((item, i) => {
+              {certifications.map((item) => {
                 const Icon = iconMap[item.icon] || Award
                 return (
-                  <motion.div
+                  <div
                     key={item.title}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.08 }}
-                    whileHover={{ scale: 1.03, y: -3 }}
                     className="glass-card text-center"
                   >
                     <Icon className="w-8 h-8 text-amber-400 mx-auto mb-3" />
                     <h4 className="font-medium text-sm text-gray-300 leading-snug">
                       {item.title}
                     </h4>
-                  </motion.div>
+                  </div>
                 )
               })}
             </div>

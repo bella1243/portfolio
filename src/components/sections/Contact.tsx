@@ -1,5 +1,4 @@
 import { useState, type FormEvent } from 'react'
-import { motion } from 'framer-motion'
 import { Mail, Linkedin, Github, MapPin, Send, CheckCircle, AlertCircle, Loader2 } from 'lucide-react'
 import SectionHeading from '../ui/SectionHeading'
 import { profile } from '../../data/profile'
@@ -49,24 +48,13 @@ export default function Contact() {
           title="Get In Touch"
           subtitle="Have a project in mind or want to connect? I'd love to hear from you"
           icon={Mail}
+          animated={false}
         />
 
         <div className="grid lg:grid-cols-2 gap-12">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
-            {contactInfo.map((info, i) => (
-              <motion.div
-                key={info.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="glass-card flex items-center gap-4"
-              >
+          <div className="space-y-6">
+            {contactInfo.map((info) => (
+              <div key={info.label} className="glass-card flex items-center gap-4">
                 <div className="p-3 rounded-xl bg-amber-500/10 border border-amber-500/20">
                   <info.icon className="w-6 h-6 text-amber-400" />
                 </div>
@@ -85,14 +73,11 @@ export default function Contact() {
                     <p className="text-gray-200 font-medium">{info.value}</p>
                   )}
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
 
-          <motion.form
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+          <form
             onSubmit={handleSubmit}
             className="glass-card space-y-5"
             aria-label="Contact form"
@@ -164,10 +149,8 @@ export default function Contact() {
               </div>
             )}
 
-            <motion.button
+            <button
               type="submit"
-              whileHover={{ scale: status === 'submitting' ? 1 : 1.02 }}
-              whileTap={{ scale: status === 'submitting' ? 1 : 0.98 }}
               disabled={status === 'submitting' || status === 'success'}
               className="btn-primary w-full disabled:opacity-70"
             >
@@ -187,8 +170,8 @@ export default function Contact() {
                   Send Message
                 </>
               )}
-            </motion.button>
-          </motion.form>
+            </button>
+          </form>
         </div>
       </div>
     </section>
