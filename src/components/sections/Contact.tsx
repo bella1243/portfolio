@@ -51,21 +51,21 @@ export default function Contact() {
           animated={false}
         />
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          <div className="space-y-6">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+          <div className="space-y-4 sm:space-y-6 min-w-0">
             {contactInfo.map((info) => (
-              <div key={info.label} className="glass-card flex items-center gap-4">
-                <div className="p-3 rounded-xl bg-amber-500/10 border border-amber-500/20">
-                  <info.icon className="w-6 h-6 text-amber-400" />
+              <div key={info.label} className="glass-card flex items-center gap-3 sm:gap-4 min-w-0">
+                <div className="p-2.5 sm:p-3 rounded-xl bg-amber-500/10 border border-amber-500/20 shrink-0">
+                  <info.icon className="w-5 h-5 sm:w-6 sm:h-6 text-amber-400" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="text-sm text-gray-500">{info.label}</p>
                   {info.href ? (
                     <a
                       href={info.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-200 hover:text-amber-400 transition-colors font-medium"
+                      className="text-gray-200 hover:text-amber-400 transition-colors font-medium break-all sm:break-normal"
                     >
                       {info.value}
                     </a>
@@ -79,7 +79,7 @@ export default function Contact() {
 
           <form
             onSubmit={handleSubmit}
-            className="glass-card space-y-5"
+            className="glass-card space-y-4 sm:space-y-5 min-w-0"
             aria-label="Contact form"
           >
             <div>

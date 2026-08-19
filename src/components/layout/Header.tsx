@@ -22,22 +22,22 @@ export default function Header({ activeSection, theme, onToggleTheme }: HeaderPr
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, delay: 0.3 }}
-      className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 py-4"
+      className="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 lg:px-8 pt-[max(1rem,env(safe-area-inset-top))] pb-3 sm:py-4"
     >
       <nav
-        className="max-w-7xl mx-auto glass rounded-2xl px-4 sm:px-6 py-3 flex items-center justify-between"
+        className="max-w-7xl mx-auto glass rounded-2xl px-3 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between gap-3 min-w-0"
         aria-label="Main navigation"
       >
         <a
           href="#home"
-          className="flex items-center gap-2.5 font-display font-bold text-xl gradient-text"
+          className="flex items-center gap-2 sm:gap-2.5 min-w-0 font-display font-bold text-lg sm:text-xl gradient-text shrink-0"
           aria-label="Go to home"
         >
-          <LogoMark />
-          {profile.name}
+          <LogoMark className="h-8 w-8 sm:h-9 sm:w-9 shrink-0" />
+          <span className="truncate">{profile.name}</span>
         </a>
 
-        <ul className="hidden md:flex items-center gap-1">
+        <ul className="hidden lg:flex items-center gap-0.5 xl:gap-1 min-w-0">
           {navLinks.map((link) => {
             const id = link.href.replace('#', '')
             const isActive = activeSection === id
@@ -45,7 +45,7 @@ export default function Header({ activeSection, theme, onToggleTheme }: HeaderPr
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  className={`relative px-2.5 xl:px-4 py-2 rounded-lg text-xs xl:text-sm font-medium transition-colors whitespace-nowrap ${
                     isActive ? 'text-amber-400' : 'text-gray-400 hover:text-gray-100'
                   }`}
                 >
@@ -63,10 +63,10 @@ export default function Header({ activeSection, theme, onToggleTheme }: HeaderPr
           })}
         </ul>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
           <ThemeToggle theme={theme} onToggle={onToggleTheme} />
           <button
-            className="md:hidden p-2 rounded-lg glass"
+            className="lg:hidden p-2 rounded-lg glass"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileOpen}
@@ -82,7 +82,7 @@ export default function Header({ activeSection, theme, onToggleTheme }: HeaderPr
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="md:hidden mt-2 max-w-7xl mx-auto glass rounded-2xl p-4"
+            className="lg:hidden mt-2 max-w-7xl mx-auto glass rounded-2xl p-3 sm:p-4 max-h-[70vh] overflow-y-auto"
           >
             <ul className="flex flex-col gap-1">
               {navLinks.map((link) => (

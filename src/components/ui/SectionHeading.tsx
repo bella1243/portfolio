@@ -25,18 +25,20 @@ export default function SectionHeading({
     : {}
 
   return (
-    <Wrapper {...wrapperProps} className="text-center mb-16">
+    <Wrapper {...wrapperProps} className="text-center mb-10 sm:mb-16">
       {Icon && (
-        <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 mb-4">
-          <Icon className="w-6 h-6 text-amber-400" />
+        <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 mb-3 sm:mb-4">
+          <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-amber-400" />
         </div>
       )}
-      <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+      <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 px-2">
         <span className="gradient-text">{title}</span>
       </h2>
-      <p className="text-gray-400 max-w-2xl mx-auto text-lg">
-        {subtitle}
-      </p>
+      {subtitle && (
+        <p className="text-gray-400 max-w-2xl mx-auto text-base sm:text-lg px-2">
+          {subtitle}
+        </p>
+      )}
       <div className="mt-6 flex justify-center">
         <div className="h-1 w-24 bg-gradient-to-r from-transparent via-amber-500 to-transparent rounded-full" />
       </div>

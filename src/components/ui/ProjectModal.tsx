@@ -202,20 +202,20 @@ export default function ProjectModal({ project, Icon, onClose }: ProjectModalPro
               </div>
             </header>
 
-            <div className="relative max-w-6xl mx-auto px-4 sm:px-8 lg:px-12 pb-24">
+            <div className="relative max-w-6xl mx-auto px-4 sm:px-8 lg:px-12 pb-[max(6rem,env(safe-area-inset-bottom))] sm:pb-24">
               {/* Hero: title left, photos right */}
-              <section className="pt-4 pb-16 lg:pb-20">
+              <section className="pt-2 sm:pt-4 pb-10 sm:pb-16 lg:pb-20">
                 <div
-                  className={`grid gap-12 lg:gap-10 items-center ${!project.hideImages ? 'lg:grid-cols-2' : ''
+                  className={`grid gap-8 sm:gap-12 lg:gap-10 items-center ${!project.hideImages ? 'lg:grid-cols-2' : ''
                     }`}
                 >
-                  <div>
-                    <p className="text-[11px] font-semibold tracking-[0.24em] uppercase text-amber-400 mb-5">
+                  <div className="min-w-0">
+                    <p className="text-[11px] font-semibold tracking-[0.24em] uppercase text-amber-400 mb-4 sm:mb-5">
                       Project
                     </p>
                     <h1
                       id="project-modal-title"
-                      className="font-display text-4xl sm:text-5xl lg:text-[3.25rem] font-bold tracking-tight leading-[1.08] mb-6"
+                      className="font-display text-3xl sm:text-4xl lg:text-[3.25rem] font-bold tracking-tight leading-[1.08] mb-4 sm:mb-6 break-words"
                     >
                       {project.title}
                     </h1>

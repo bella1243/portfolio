@@ -34,7 +34,7 @@ export default function Education() {
           animated={false}
         />
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           <div>
             <h3 className="font-display text-2xl font-semibold mb-6 flex items-center gap-2">
               <GraduationCap className="w-6 h-6 text-amber-400" />
@@ -68,7 +68,7 @@ export default function Education() {
               <Award className="w-6 h-6 text-amber-400" />
               Certifications
             </h3>
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 xs:grid-cols-2 gap-4">
               {certifications.map((item) => {
                 const Icon = iconMap[item.icon] || Award
                 return (

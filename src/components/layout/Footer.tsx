@@ -12,7 +12,7 @@ export default function Footer() {
   return (
     <footer className="relative border-t border-white/10 bg-black/20">
       <div className="section-padding max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-3 gap-12 mb-12">
+        <div className="grid md:grid-cols-3 gap-8 md:gap-12 mb-8 md:mb-12">
           <div>
             <h3 className="font-display text-xl font-bold gradient-text mb-4">
               {profile.name}
@@ -61,7 +61,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-white/10 flex justify-center text-sm text-gray-500">
+        <div className="pt-6 sm:pt-8 border-t border-white/10 flex justify-center text-center text-xs sm:text-sm text-gray-500 px-2">
           <p>&copy; {new Date().getFullYear()} {profile.name}. All rights reserved.</p>
         </div>
       </div>

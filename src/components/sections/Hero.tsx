@@ -1,35 +1,32 @@
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { ArrowDown, ArrowUpRight, FileText } from 'lucide-react'
 import { profile } from '../../data/profile'
 
 export default function Hero() {
-  const { scrollY } = useScroll()
-  const y = useTransform(scrollY, [0, 500], [0, 80])
-  const opacity = useTransform(scrollY, [0, 280], [1, 0])
-
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center section-padding pt-28 pb-16"
+      className="relative min-h-[100dvh] flex items-center section-padding pt-24 sm:pt-28 pb-12 sm:pb-16"
       aria-label="Hero section"
     >
-      <motion.div style={{ y, opacity }} className="max-w-6xl mx-auto w-full">
-        <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-12 lg:gap-16 items-center">
+      <div className="max-w-6xl mx-auto w-full min-w-0">
+        <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-8 sm:gap-12 lg:gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            className="min-w-0"
           >
-            <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] mb-5">
+            <h1 className="font-display text-4xl xs:text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] mb-4 sm:mb-5">
               Hi, I&apos;m{' '}
               <span className="gradient-text">{profile.name}</span>
             </h1>
 
-            <p className="text-lg sm:text-xl text-gray-300 font-medium mb-4 max-w-lg leading-snug">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-300 font-medium mb-3 sm:mb-4 max-w-lg leading-snug">
               Electrical & Computer Engineer building intelligent systems.
             </p>
 
-            <p className="text-gray-400 text-base leading-relaxed mb-9 max-w-md">
+            <p className="text-gray-400 text-sm sm:text-base leading-relaxed mb-7 sm:mb-9 max-w-md">
               {profile.intro}
             </p>
 
@@ -54,9 +51,9 @@ export default function Hero() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="flex justify-center lg:justify-end"
+            className="flex justify-center lg:justify-end min-w-0"
           >
-            <div className="relative w-full max-w-[340px] sm:max-w-[380px]">
+            <div className="relative w-full max-w-[280px] xs:max-w-[320px] sm:max-w-[380px]">
               <div
                 className="absolute -inset-6 rounded-[2rem] opacity-40 blur-3xl pointer-events-none"
                 style={{
@@ -76,7 +73,7 @@ export default function Hero() {
             </div>
           </motion.div>
         </div>
-      </motion.div>
+      </div>
 
       <motion.a
         href="#about"

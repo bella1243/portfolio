@@ -34,20 +34,20 @@ function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {
 export default function About() {
   return (
     <section id="about" className="section-padding relative" aria-label="About me">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto min-w-0">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.5 }}
-          className="mb-14 md:mb-20"
+          className="mb-10 sm:mb-14 md:mb-20"
         >
-          <h2 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.02] mb-8 sm:mb-10">
+          <h2 className="font-display text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight leading-[1.02] mb-6 sm:mb-8 lg:mb-10">
             <span className="gradient-text">About Me</span>
           </h2>
-          <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-8 lg:gap-16 items-end">
-            <p className="font-display text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight leading-snug text-gray-100">
+          <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-6 sm:gap-8 lg:gap-16 items-end">
+            <p className="font-display text-xl sm:text-2xl lg:text-4xl font-semibold tracking-tight leading-snug text-gray-100">
               Engineer focused on{' '}
               <span className="text-amber-400">intelligent systems</span>
             </p>
@@ -99,16 +99,17 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.45 }}
-          className="mb-16 md:mb-24 rounded-3xl border border-white/10 bg-white/[0.03] px-6 py-8 sm:px-10 sm:py-10"
+          className="mb-12 sm:mb-16 md:mb-24 rounded-2xl sm:rounded-3xl border border-white/10 bg-white/[0.03] px-5 py-6 sm:px-10 sm:py-10"
         >
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-4">
             {stats.map((stat, i) => (
               <div
                 key={stat.label}
-                className={`text-center sm:text-left ${i > 0 ? 'sm:border-l sm:border-white/10 sm:pl-8' : ''
-                  }`}
+                className={`text-center sm:text-left ${
+                  i > 0 ? 'sm:border-l sm:border-white/10 sm:pl-8 pt-6 sm:pt-0 border-t sm:border-t-0 border-white/10' : ''
+                }`}
               >
-                <div className="font-display text-4xl sm:text-5xl font-bold gradient-text mb-2 tabular-nums">
+                <div className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold gradient-text mb-2 tabular-nums">
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                 </div>
                 <p className="text-sm text-gray-500 tracking-wide">{stat.label}</p>

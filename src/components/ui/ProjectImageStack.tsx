@@ -84,8 +84,8 @@ export default function ProjectImageStack({
   } as const
 
   return (
-    <div className="relative mx-auto w-full max-w-[420px]">
-      <div className="relative mx-auto aspect-[3/4] w-[78%] sm:w-[82%]">
+    <div className="relative mx-auto w-full max-w-[420px] min-w-0">
+      <div className="relative mx-auto aspect-[3/4] w-[88%] xs:w-[82%] sm:w-[78%]">
         <AnimatePresence initial={false}>
           {renderOrder.map(({ side, imageIndex }) => {
             const isFront = side === 'center'
@@ -138,7 +138,7 @@ export default function ProjectImageStack({
       </div>
 
       {count > 1 && (
-        <div className="mt-10 flex items-center justify-between gap-4 px-2">
+        <div className="mt-8 sm:mt-10 flex flex-wrap items-center justify-between gap-3 sm:gap-4 px-1 sm:px-2">
           <div className="flex items-center gap-2">
             <button
               type="button"

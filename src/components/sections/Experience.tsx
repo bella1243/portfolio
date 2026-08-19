@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import { Briefcase } from 'lucide-react'
 import SectionHeading from '../ui/SectionHeading'
 import { experiences } from '../../data/experience'
@@ -17,27 +16,18 @@ export default function Experience() {
           <div className="absolute left-4 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-amber-500/50 via-amber-500/50 to-amber-500/50" />
 
           {experiences.map((exp, i) => (
-            <motion.div
+            <div
               key={exp.company}
-              initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.6, delay: i * 0.15 }}
-              className={`relative flex items-center gap-8 mb-12 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                }`}
+              className={`relative flex items-center gap-8 mb-12 ${
+                i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+              }`}
             >
               <div className="hidden md:block md:w-1/2" />
 
-              <motion.div
-                whileHover={{ scale: 1.2 }}
-                className="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-amber-500 border-4 border-[#0a0a0f] [.light_&]:border-slate-200 z-10 shadow-lg shadow-amber-500/50"
-              />
+              <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-amber-500 border-4 border-[#0a0a0f] [.light_&]:border-slate-200 z-10 shadow-lg shadow-amber-500/50" />
 
               <div className={`ml-12 md:ml-0 md:w-1/2 ${i % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
-                <motion.div
-                  whileHover={{ y: -5 }}
-                  className="glass-card"
-                >
+                <div className="glass-card">
                   <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-amber-500/10 text-amber-400 border border-amber-500/20 mb-3">
                     {exp.period}
                   </span>
@@ -53,9 +43,9 @@ export default function Experience() {
                       </li>
                     ))}
                   </ul>
-                </motion.div>
+                </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
