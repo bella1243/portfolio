@@ -4,6 +4,7 @@ import { Menu, X } from 'lucide-react'
 import { navLinks } from '../../data/navigation'
 import { profile } from '../../data/profile'
 import ThemeToggle from '../ui/ThemeToggle'
+import LogoMark from '../ui/LogoMark'
 
 interface HeaderProps {
   activeSection: string
@@ -29,9 +30,10 @@ export default function Header({ activeSection, theme, onToggleTheme }: HeaderPr
       >
         <a
           href="#home"
-          className="font-display font-bold text-xl gradient-text"
+          className="flex items-center gap-2.5 font-display font-bold text-xl gradient-text"
           aria-label="Go to home"
         >
+          <LogoMark />
           {profile.name}
         </a>
 
