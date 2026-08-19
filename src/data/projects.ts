@@ -308,7 +308,7 @@ export const projects: Project[] = [
     duration: '2025',
     type: 'Web Application',
     status: 'Completed',
-    liveUrl: 'https://clone-rust-psi.vercel.app/',
+    liveUrl: 'https://clone-lyart-iota.vercel.app/',
   },
 
   {
