@@ -308,6 +308,7 @@ export const projects: Project[] = [
     duration: '2025',
     type: 'Web Application',
     status: 'Completed',
+    
     liveUrl: 'https://clone-lyart-iota.vercel.app/',
   },
 
