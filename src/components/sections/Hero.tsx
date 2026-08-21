@@ -58,7 +58,7 @@ export default function Hero() {
                 className="absolute -inset-6 rounded-[2rem] opacity-40 blur-3xl pointer-events-none"
                 style={{
                   background:
-                    'radial-gradient(circle at 50% 40%, rgba(245,158,11,0.35), transparent 65%)',
+                    'radial-gradient(circle at 50% 40%, rgba(166,122,82,0.12), transparent 65%)',
                 }}
                 aria-hidden
               />

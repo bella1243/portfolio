@@ -11,17 +11,18 @@ export default function LoadingScreen() {
         if (el) el.style.display = 'none'
       }}
       id="loading-screen"
-      className="fixed inset-0 z-[200] flex items-center justify-center bg-[#0a0a0f]"
+      className="fixed inset-0 z-[200] flex items-center justify-center bg-[#08080c] [.light_&]:bg-[#ece8e2]"
       role="status"
       aria-label="Loading"
     >
       <div className="text-center">
         <motion.div
-          className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center"
+          className="w-16 h-16 mx-auto mb-6 rounded-2xl flex items-center justify-center"
+          style={{ background: 'linear-gradient(135deg, #b88960, #8a6240)' }}
           animate={{ rotate: 360 }}
           transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
         >
-          <div className="w-8 h-8 rounded-lg bg-[#0a0a0f]" />
+          <div className="w-8 h-8 rounded-lg bg-[#08080c] [.light_&]:bg-[#ece8e2]" />
         </motion.div>
         <motion.p
           initial={{ opacity: 0 }}

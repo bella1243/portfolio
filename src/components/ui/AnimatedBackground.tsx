@@ -22,8 +22,8 @@ export default function AnimatedBackground() {
 
     let animationId: number
     let particles: Particle[] = []
-    const connectionDistance = 150
-    const particleCount = 80
+    const connectionDistance = 130
+    const particleCount = 48
 
     const resize = () => {
       canvas.width = window.innerWidth
@@ -35,10 +35,10 @@ export default function AnimatedBackground() {
       particles = Array.from({ length: particleCount }, () => ({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
-        radius: Math.random() * 2 + 1,
-        opacity: Math.random() * 0.5 + 0.2,
+        vx: (Math.random() - 0.5) * 0.28,
+        vy: (Math.random() - 0.5) * 0.28,
+        radius: Math.random() * 1.6 + 0.6,
+        opacity: Math.random() * 0.35 + 0.12,
       }))
     }
 
@@ -54,7 +54,7 @@ export default function AnimatedBackground() {
 
         ctx.beginPath()
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(6, 182, 212, ${p.opacity})`
+        ctx.fillStyle = `rgba(166, 122, 82, ${p.opacity * 0.55})`
         ctx.fill()
 
         for (let j = i + 1; j < particles.length; j++) {
@@ -67,7 +67,7 @@ export default function AnimatedBackground() {
             ctx.beginPath()
             ctx.moveTo(p.x, p.y)
             ctx.lineTo(p2.x, p2.y)
-            ctx.strokeStyle = `rgba(6, 182, 212, ${0.15 * (1 - dist / connectionDistance)})`
+            ctx.strokeStyle = `rgba(166, 122, 82, ${0.05 * (1 - dist / connectionDistance)})`
             ctx.lineWidth = 0.5
             ctx.stroke()
           }
@@ -89,25 +89,36 @@ export default function AnimatedBackground() {
 
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-      <div className="absolute inset-0 bg-[#0a0a0f] [.light_&]:bg-slate-200" />
-      <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 via-transparent to-amber-500/5 animate-gradient-shift bg-[length:400%_400%] [.light_&]:from-amber-500/10 [.light_&]:to-amber-500/10" />
-      <canvas ref={canvasRef} className="absolute inset-0 opacity-60 [.light_&]:opacity-20" aria-hidden="true" />
+      <div className="absolute inset-0 bg-[#08080c] [.light_&]:bg-[#ece8e2]" />
+
+      {/* Soft luminous washes */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_10%,rgba(166,122,82,0.05),transparent_50%),radial-gradient(ellipse_at_80%_0%,rgba(255,255,255,0.04),transparent_45%),radial-gradient(ellipse_at_70%_85%,rgba(138,98,64,0.04),transparent_50%)] [.light_&]:bg-[radial-gradient(ellipse_at_15%_0%,rgba(255,255,255,0.85),transparent_45%),radial-gradient(ellipse_at_85%_10%,rgba(217,174,136,0.28),transparent_40%),radial-gradient(ellipse_at_50%_100%,rgba(198,125,69,0.14),transparent_50%)]" />
+
+      <canvas ref={canvasRef} className="absolute inset-0 opacity-22 [.light_&]:opacity-22" aria-hidden="true" />
+
+      {/* Liquid glass orbs */}
       <motion.div
-        className="absolute top-1/4 -left-32 w-96 h-96 rounded-full bg-amber-500/10 blur-3xl [.light_&]:bg-amber-500/5"
-        animate={{ x: [0, 50, 0], y: [0, 30, 0] }}
-        transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
+        className="absolute top-[12%] -left-24 h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(circle,rgba(166,122,82,0.08),transparent_68%)] blur-3xl [.light_&]:bg-[radial-gradient(circle,rgba(255,255,255,0.7),rgba(217,174,136,0.22)_45%,transparent_70%)]"
+        animate={{ x: [0, 40, 0], y: [0, 24, 0] }}
+        transition={{ duration: 22, repeat: Infinity, ease: 'easeInOut' }}
       />
       <motion.div
-        className="absolute bottom-1/4 -right-32 w-96 h-96 rounded-full bg-amber-500/10 blur-3xl [.light_&]:bg-amber-500/5"
-        animate={{ x: [0, -50, 0], y: [0, -30, 0] }}
-        transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
+        className="absolute bottom-[8%] -right-28 h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,rgba(138,98,64,0.07),transparent_68%)] blur-3xl [.light_&]:bg-[radial-gradient(circle,rgba(255,255,255,0.55),rgba(198,125,69,0.18)_50%,transparent_72%)]"
+        animate={{ x: [0, -36, 0], y: [0, -28, 0] }}
+        transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
       />
+      <motion.div
+        className="absolute top-1/2 left-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.06),transparent_70%)] blur-2xl [.light_&]:bg-[radial-gradient(circle,rgba(255,255,255,0.45),transparent_70%)]"
+        animate={{ scale: [1, 1.12, 1], opacity: [0.5, 0.85, 0.5] }}
+        transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }}
+      />
+
+      {/* Subtle specular sheen */}
       <div
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.35] [.light_&]:opacity-50"
         style={{
-          backgroundImage: `linear-gradient(rgba(6,182,212,0.3) 1px, transparent 1px),
-                           linear-gradient(90deg, rgba(6,182,212,0.3) 1px, transparent 1px)`,
-          backgroundSize: '60px 60px',
+          background:
+            'linear-gradient(115deg, transparent 20%, rgba(255,255,255,0.04) 42%, transparent 58%)',
         }}
       />
     </div>

@@ -4,7 +4,13 @@ import { Mail, Phone } from 'lucide-react'
 import { profile } from '../../data/profile'
 
 const buttonClass =
-  'inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full glass border border-amber-500/30 text-sm font-medium text-gray-100 shadow-lg shadow-amber-500/20 hover:border-amber-400/50 hover:bg-amber-500/10 transition-colors'
+  'inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full glass border border-amber-500/30 text-sm font-medium text-gray-100 transition-colors'
+
+const softGlow = [
+  '0 10px 25px rgba(166, 122, 82, 0.06)',
+  '0 14px 32px rgba(166, 122, 82, 0.1)',
+  '0 10px 25px rgba(166, 122, 82, 0.06)',
+]
 
 export default function FloatingContact() {
   const [visible, setVisible] = useState(false)
@@ -34,11 +40,7 @@ export default function FloatingContact() {
               animate={{
                 y: [0, -6, 0],
                 scale: [1, 1.04, 1],
-                boxShadow: [
-                  '0 10px 25px rgba(6, 182, 212, 0.15)',
-                  '0 14px 32px rgba(6, 182, 212, 0.35)',
-                  '0 10px 25px rgba(6, 182, 212, 0.15)',
-                ],
+                boxShadow: softGlow,
               }}
               transition={{
                 duration: 1.6,
@@ -63,11 +65,7 @@ export default function FloatingContact() {
               animate={{
                 y: [0, -6, 0],
                 scale: [1, 1.04, 1],
-                boxShadow: [
-                  '0 10px 25px rgba(6, 182, 212, 0.15)',
-                  '0 14px 32px rgba(6, 182, 212, 0.35)',
-                  '0 10px 25px rgba(6, 182, 212, 0.15)',
-                ],
+                boxShadow: softGlow,
               }}
               transition={{
                 duration: 1.6,

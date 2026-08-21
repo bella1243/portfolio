@@ -15,8 +15,11 @@ export default function ScrollProgress() {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-600 via-amber-400 to-yellow-300 origin-left z-[100]"
-      style={{ scaleX }}
+      className="fixed top-0 left-0 right-0 h-[2px] origin-left z-[100]"
+      style={{
+        scaleX,
+        background: 'linear-gradient(90deg, #8a6240, #a67a52, #b88960)',
+      }}
       role="progressbar"
       aria-label="Page scroll progress"
       aria-valuemin={0}

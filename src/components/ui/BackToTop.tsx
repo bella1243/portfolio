@@ -24,7 +24,11 @@ export default function BackToTop() {
           whileTap={{ scale: 0.9 }}
           onClick={scrollToTop}
           aria-label="Back to top"
-          className="fixed bottom-[max(1rem,env(safe-area-inset-bottom))] right-[max(1rem,env(safe-area-inset-right))] sm:bottom-8 sm:right-8 z-50 p-3 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-lg shadow-amber-500/30"
+          className="fixed bottom-[max(1rem,env(safe-area-inset-bottom))] right-[max(1rem,env(safe-area-inset-right))] sm:bottom-8 sm:right-8 z-50 p-3 rounded-full text-white shadow-lg"
+          style={{
+            background: 'linear-gradient(135deg, #b88960, #8a6240)',
+            boxShadow: '0 8px 20px rgba(166,122,82,0.14)',
+          }}
         >
           <ArrowUp className="w-5 h-5" />
         </motion.button>

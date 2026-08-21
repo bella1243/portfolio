@@ -12,15 +12,24 @@ export default function LogoMark({ className = 'h-9 w-9' }: LogoMarkProps) {
       aria-hidden="true"
     >
       <defs>
-        <linearGradient id="logo-amber" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#fcd34d" />
-          <stop offset="1" stopColor="#d97706" />
+        <linearGradient id="logo-orange" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#b88960" />
+          <stop offset="0.55" stopColor="#a67a52" />
+          <stop offset="1" stopColor="#8a6240" />
         </linearGradient>
       </defs>
-      <rect width="32" height="32" rx="8" fill="url(#logo-amber)" />
+      <rect width="32" height="32" rx="9" fill="url(#logo-orange)" />
+      <rect
+        x="0.5"
+        y="0.5"
+        width="31"
+        height="31"
+        rx="8.5"
+        stroke="rgba(255,255,255,0.28)"
+      />
       <path
         d="M16 9L22.5 23H19.2L17.9 19.6H14.1L12.8 23H9.5L16 9ZM15.1 17.2H16.9L16 14.4L15.1 17.2Z"
-        fill="#0a0a0f"
+        fill="#1c1917"
       />
     </svg>
   )

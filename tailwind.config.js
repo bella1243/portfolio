@@ -9,9 +9,9 @@ export default {
       },
       colors: {
         accent: {
-          DEFAULT: '#06b6d4',
-          light: '#22d3ee',
-          dark: '#0891b2',
+          DEFAULT: '#a67a52',
+          light: '#b88960',
+          dark: '#8a6240',
         },
         surface: {
           DEFAULT: 'rgba(255, 255, 255, 0.05)',
@@ -19,8 +19,8 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Space Grotesk', 'Inter', 'sans-serif'],
+        sans: ['Manrope', 'system-ui', 'sans-serif'],
+        display: ['Outfit', 'Manrope', 'sans-serif'],
       },
       animation: {
         'gradient-shift': 'gradient-shift 8s ease infinite',

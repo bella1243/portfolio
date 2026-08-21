@@ -3,6 +3,25 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    /* Soft muted orange — quieter / darker in night mode */
+    --accent: #a67a52;
+    --accent-soft: #b88960;
+    --accent-deep: #8a6240;
+    --accent-muted: #9a7048;
+    --bg-dark: #08080c;
+    --bg-light: #ece8e2;
+    --glass-shine: rgba(255, 255, 255, 0.55);
+    --glass-edge: rgba(255, 255, 255, 0.22);
+  }
+
+  html.light {
+    --accent: #c67d45;
+    --accent-soft: #d4985f;
+    --accent-deep: #a86532;
+    --accent-muted: #b87338;
+  }
+
   html {
     scroll-behavior: smooth;
     overflow-x: hidden;
@@ -10,21 +29,25 @@
   }
 
   body {
-    @apply bg-[#0a0a0f] text-gray-100 font-sans antialiased overflow-x-hidden min-h-screen;
+    @apply text-gray-100 font-sans antialiased overflow-x-hidden min-h-screen;
+    background-color: var(--bg-dark);
     padding-left: env(safe-area-inset-left);
     padding-right: env(safe-area-inset-right);
   }
 
   html.light body {
-    @apply bg-slate-200 text-gray-900;
+    @apply text-gray-900;
+    background-color: var(--bg-light);
   }
 
   ::selection {
-    @apply bg-amber-500/30 text-white;
+    background-color: color-mix(in srgb, var(--accent) 35%, transparent);
+    color: white;
   }
 
   html.light ::selection {
-    @apply bg-amber-500/25 text-gray-900;
+    background-color: color-mix(in srgb, var(--accent) 28%, transparent);
+    color: #1c1917;
   }
 
   section[id] {
@@ -40,11 +63,36 @@
 
 @layer components {
   .glass {
-    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+    background: linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.04) 45%,
+      rgba(255, 255, 255, 0.02) 100%
+    );
+    backdrop-filter: blur(28px) saturate(165%);
+    -webkit-backdrop-filter: blur(28px) saturate(165%);
+    border: 1px solid var(--glass-edge);
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.22),
+      inset 0 -1px 0 0 rgba(255, 255, 255, 0.04),
+      0 12px 40px rgba(0, 0, 0, 0.22);
   }
 
   html.light .glass {
-    @apply bg-white/80 border-slate-400/70 shadow-md shadow-slate-300/30;
+    background: linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.78) 0%,
+      rgba(255, 255, 255, 0.42) 50%,
+      rgba(255, 255, 255, 0.28) 100%
+    );
+    backdrop-filter: blur(32px) saturate(180%);
+    -webkit-backdrop-filter: blur(32px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.72);
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.95),
+      inset 0 -1px 0 0 rgba(255, 255, 255, 0.25),
+      0 18px 50px rgba(28, 25, 23, 0.07),
+      0 2px 8px rgba(28, 25, 23, 0.04);
   }
 
   .glass-card {
@@ -52,15 +100,50 @@
   }
 
   .glass-card:hover {
-    @apply bg-white/10 border-amber-500/30 shadow-lg shadow-amber-500/5;
+    background: linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.14) 0%,
+      rgba(255, 255, 255, 0.06) 100%
+    );
+    border-color: color-mix(in srgb, var(--accent) 35%, rgba(255, 255, 255, 0.2));
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.28),
+      0 18px 48px rgba(0, 0, 0, 0.28),
+      0 0 0 1px color-mix(in srgb, var(--accent) 12%, transparent);
   }
 
   html.light .glass-card:hover {
-    @apply bg-white border-amber-500/40 shadow-lg shadow-slate-400/25;
+    background: linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.92) 0%,
+      rgba(255, 255, 255, 0.55) 100%
+    );
+    border-color: color-mix(in srgb, var(--accent) 40%, rgba(255, 255, 255, 0.7));
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 1),
+      0 22px 55px rgba(28, 25, 23, 0.1),
+      0 0 0 1px color-mix(in srgb, var(--accent) 18%, transparent);
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-amber-200 via-amber-400 to-yellow-500 bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      120deg,
+      var(--accent-soft) 0%,
+      var(--accent) 45%,
+      var(--accent-deep) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  html.light .gradient-text {
+    background-image: linear-gradient(
+      120deg,
+      #a86532 0%,
+      var(--accent-muted) 50%,
+      #8f5528 100%
+    );
   }
 
   .profile-image-blend {
@@ -74,36 +157,62 @@
     mask-composite: intersect;
   }
 
-  html.light .gradient-text {
-    @apply from-amber-700 via-amber-600 to-yellow-600;
-  }
-
   .section-padding {
     @apply px-4 sm:px-6 lg:px-8 py-16 sm:py-20 md:py-28;
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-medium
-           bg-gradient-to-r from-amber-500 to-amber-600 text-white
-           hover:from-amber-400 hover:to-amber-500
-           transition-all duration-300 shadow-lg shadow-amber-500/25
-           hover:shadow-amber-500/40 hover:-translate-y-0.5
-           focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f];
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-medium text-white
+           transition-all duration-300 hover:-translate-y-0.5
+           focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+    background: linear-gradient(135deg, var(--accent-soft), var(--accent-deep));
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.28),
+      0 8px 22px color-mix(in srgb, var(--accent) 18%, transparent);
+    --tw-ring-color: var(--accent);
+    --tw-ring-offset-color: var(--bg-dark);
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(135deg, #c49a70, var(--accent));
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.28),
+      0 10px 24px color-mix(in srgb, var(--accent) 22%, transparent);
   }
 
   html.light .btn-primary {
-    @apply focus-visible:ring-offset-slate-200;
+    --tw-ring-offset-color: var(--bg-light);
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-medium
-           glass text-gray-100 hover:bg-white/10 hover:border-amber-500/40
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-medium glass text-gray-100
            transition-all duration-300 hover:-translate-y-0.5
-           focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f];
+           focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+    --tw-ring-color: var(--accent);
+    --tw-ring-offset-color: var(--bg-dark);
+  }
+
+  .btn-secondary:hover {
+    border-color: color-mix(in srgb, var(--accent) 40%, rgba(255, 255, 255, 0.25));
+    background: linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.14),
+      rgba(255, 255, 255, 0.05)
+    );
   }
 
   html.light .btn-secondary {
-    @apply text-gray-800 hover:bg-white hover:text-gray-900 focus-visible:ring-offset-slate-200;
+    @apply text-gray-800;
+    --tw-ring-offset-color: var(--bg-light);
+  }
+
+  html.light .btn-secondary:hover {
+    @apply text-gray-900;
+    background: linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.95),
+      rgba(255, 255, 255, 0.7)
+    );
   }
 
   .project-flip {
@@ -124,13 +233,32 @@
   }
 
   .project-face {
-    @apply absolute inset-0 overflow-hidden rounded-3xl bg-[#15151f] shadow-lg shadow-black/40 border border-white/10;
+    @apply absolute inset-0 overflow-hidden rounded-3xl;
+    background: linear-gradient(
+      160deg,
+      rgba(255, 255, 255, 0.08),
+      rgba(18, 18, 26, 0.92)
+    );
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.18),
+      0 18px 40px rgba(0, 0, 0, 0.35);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
   }
 
   html.light .project-face {
-    @apply bg-white shadow-black/10 border-slate-400/60;
+    background: linear-gradient(
+      160deg,
+      rgba(255, 255, 255, 0.88),
+      rgba(255, 255, 255, 0.55)
+    );
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 1),
+      0 18px 40px rgba(28, 25, 23, 0.08);
   }
 
   .project-face-front {
@@ -143,26 +271,26 @@
 
   .project-blob {
     @apply absolute -bottom-10 -right-10 h-40 w-40 rounded-full;
-    background-color: color-mix(in srgb, var(--project-accent) 45%, #0a0a12 55%);
-    opacity: 0.85;
-    filter: blur(2px);
+    background-color: color-mix(in srgb, var(--project-accent) 40%, #0a0a12 60%);
+    opacity: 0.75;
+    filter: blur(8px);
   }
 
   html.light .project-blob {
     background-color: var(--project-accent);
-    opacity: 0.7;
+    opacity: 0.45;
   }
 
   .project-accent-chip {
-    background-color: color-mix(in srgb, var(--project-accent) 30%, #11111a 70%);
+    background-color: color-mix(in srgb, var(--project-accent) 28%, #11111a 72%);
   }
 
   html.light .project-accent-chip {
-    background-color: color-mix(in srgb, var(--project-accent) 40%, white 60%);
+    background-color: color-mix(in srgb, var(--project-accent) 32%, white 68%);
   }
 
   .project-accent-btn {
-    background-color: color-mix(in srgb, var(--project-accent) 50%, #0a0a12 50%);
+    background-color: color-mix(in srgb, var(--project-accent) 48%, #0a0a12 52%);
   }
 
   html.light .project-accent-btn {
@@ -174,7 +302,7 @@
   }
 
   html.light .project-card-title {
-    @apply text-slate-800;
+    @apply text-stone-800;
   }
 
   .project-card-desc {
@@ -182,7 +310,7 @@
   }
 
   html.light .project-card-desc {
-    @apply text-slate-600;
+    @apply text-stone-600;
   }
 
   .project-card-icon {
@@ -190,7 +318,7 @@
   }
 
   html.light .project-card-icon {
-    @apply text-slate-800;
+    @apply text-stone-800;
   }
 
   .project-card-arrow-icon {
@@ -198,48 +326,171 @@
   }
 
   html.light .project-card-arrow-icon {
-    @apply text-slate-900;
+    @apply text-stone-900;
   }
 }
 
-/* Light mode readability overrides */
-html.light .text-gray-100 { color: rgb(17 24 39); }
-html.light .text-gray-200 { color: rgb(31 41 55); }
-html.light .text-gray-300 { color: rgb(55 65 81); }
-html.light .text-gray-400 { color: rgb(75 85 99); }
-html.light .text-gray-500 { color: rgb(75 85 99); }
-html.light .hover\:text-gray-100:hover { color: rgb(17 24 39); }
-html.light .hover\:text-gray-200:hover { color: rgb(31 41 55); }
-html.light .hover\:text-gray-300:hover { color: rgb(55 65 81); }
-html.light .text-amber-400 { color: rgb(180 83 9); }
-html.light .text-amber-400\/90 { color: rgb(180 83 9 / 0.95); }
-html.light .hover\:text-amber-400:hover { color: rgb(146 64 14); }
-html.light .text-amber-300 { color: rgb(180 83 9); }
+/* Soft champagne remaps — tone down bright orange site-wide */
+.text-amber-400,
+.text-amber-300,
+.text-amber-500,
+.hover\:text-amber-400:hover,
+.hover\:text-amber-300:hover {
+  color: var(--accent) !important;
+}
 
-html.light .border-white\/10 { border-color: rgb(100 116 139 / 0.55); }
-html.light .border-white\/15 { border-color: rgb(100 116 139 / 0.65); }
-html.light .border-white\/20 { border-color: rgb(71 85 105 / 0.55); }
-html.light .bg-white\/5 { background-color: rgb(255 255 255 / 0.9); }
-html.light .bg-white\/10 { background-color: rgb(255 255 255); }
-html.light .bg-black\/20 { background-color: rgb(203 213 225 / 0.4); }
-html.light .hover\:bg-white\/5:hover { background-color: rgb(241 245 249); }
-html.light .hover\:bg-white\/10:hover { background-color: rgb(255 255 255); }
+html.light .text-amber-400,
+html.light .text-amber-300,
+html.light .text-amber-500,
+html.light .hover\:text-amber-400:hover,
+html.light .hover\:text-amber-300:hover {
+  color: var(--accent-muted) !important;
+}
+
+.text-amber-400\/60 {
+  color: color-mix(in srgb, var(--accent) 60%, transparent) !important;
+}
+
+.text-amber-400\/90 {
+  color: color-mix(in srgb, var(--accent) 90%, transparent) !important;
+}
+
+.bg-amber-500\/5 {
+  background-color: color-mix(in srgb, var(--accent) 5%, transparent) !important;
+}
+
+.bg-amber-500\/10 {
+  background-color: color-mix(in srgb, var(--accent) 10%, transparent) !important;
+}
+
+.bg-amber-500\/20 {
+  background-color: color-mix(in srgb, var(--accent) 18%, transparent) !important;
+}
+
+.border-amber-500\/20 {
+  border-color: color-mix(in srgb, var(--accent) 22%, transparent) !important;
+}
+
+.border-amber-500\/25 {
+  border-color: color-mix(in srgb, var(--accent) 25%, transparent) !important;
+}
+
+.border-amber-500\/30 {
+  border-color: color-mix(in srgb, var(--accent) 30%, transparent) !important;
+}
+
+.border-amber-500\/35 {
+  border-color: color-mix(in srgb, var(--accent) 35%, transparent) !important;
+}
+
+.border-amber-500\/40 {
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent) !important;
+}
+
+.hover\:border-amber-500\/25:hover,
+.hover\:border-amber-500\/30:hover,
+.hover\:border-amber-500\/35:hover,
+.hover\:border-amber-500\/40:hover,
+.hover\:border-amber-500\/50:hover {
+  border-color: color-mix(in srgb, var(--accent) 38%, transparent) !important;
+}
+
+.hover\:bg-amber-500\/5:hover,
+.hover\:bg-amber-500\/10:hover {
+  background-color: color-mix(in srgb, var(--accent) 8%, transparent) !important;
+}
+
+.from-amber-500,
+.from-amber-400,
+.from-amber-200 {
+  --tw-gradient-from: var(--accent-soft) var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: color-mix(in srgb, var(--accent-soft) 0%, transparent) var(--tw-gradient-to-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+
+.via-amber-400,
+.via-amber-500 {
+  --tw-gradient-to: color-mix(in srgb, var(--accent) 0%, transparent) var(--tw-gradient-to-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--accent) var(--tw-gradient-via-position), var(--tw-gradient-to) !important;
+}
+
+.to-amber-500,
+.to-amber-600,
+.to-yellow-500,
+.to-yellow-600 {
+  --tw-gradient-to: var(--accent-deep) var(--tw-gradient-to-position) !important;
+}
+
+.shadow-amber-500\/5 {
+  --tw-shadow-color: color-mix(in srgb, var(--accent) 8%, transparent) !important;
+}
+
+.shadow-amber-500\/20,
+.shadow-amber-500\/25,
+.shadow-amber-500\/30,
+.shadow-amber-500\/40,
+.shadow-amber-500\/50 {
+  --tw-shadow-color: color-mix(in srgb, var(--accent) 16%, transparent) !important;
+}
+
+.ring-amber-400 {
+  --tw-ring-color: var(--accent) !important;
+}
+
+.focus\:border-amber-500\/50:focus,
+.focus\:ring-amber-500\/30:focus {
+  border-color: color-mix(in srgb, var(--accent) 45%, transparent) !important;
+  --tw-ring-color: color-mix(in srgb, var(--accent) 28%, transparent) !important;
+}
+
+.focus-visible\:ring-amber-400:focus-visible {
+  --tw-ring-color: var(--accent) !important;
+}
+
+/* Light mode readability overrides */
+html.light .text-gray-100 { color: rgb(28 25 23); }
+html.light .text-gray-200 { color: rgb(41 37 36); }
+html.light .text-gray-300 { color: rgb(68 64 60); }
+html.light .text-gray-400 { color: rgb(87 83 78); }
+html.light .text-gray-500 { color: rgb(87 83 78); }
+html.light .hover\:text-gray-100:hover { color: rgb(28 25 23); }
+html.light .hover\:text-gray-200:hover { color: rgb(41 37 36); }
+html.light .hover\:text-gray-300:hover { color: rgb(68 64 60); }
+
+html.light .border-white\/10 { border-color: rgb(255 255 255 / 0.55); }
+html.light .border-white\/15 { border-color: rgb(255 255 255 / 0.65); }
+html.light .border-white\/20 { border-color: rgb(255 255 255 / 0.72); }
+html.light .bg-white\/5 { background-color: rgb(255 255 255 / 0.45); }
+html.light .bg-white\/10 { background-color: rgb(255 255 255 / 0.62); }
+html.light .bg-white\/\[0\.03\] { background-color: rgb(255 255 255 / 0.35); }
+html.light .bg-white\/\[0\.035\] { background-color: rgb(255 255 255 / 0.4); }
+html.light .bg-white\/\[0\.05\] { background-color: rgb(255 255 255 / 0.5); }
+html.light .bg-white\/\[0\.06\] { background-color: rgb(255 255 255 / 0.55); }
+html.light .bg-black\/20 { background-color: rgb(255 255 255 / 0.28); }
+html.light .hover\:bg-white\/5:hover { background-color: rgb(255 255 255 / 0.55); }
+html.light .hover\:bg-white\/10:hover { background-color: rgb(255 255 255 / 0.72); }
 
 html.light input,
 html.light textarea {
-  background-color: rgb(255 255 255);
-  border-color: rgb(203 213 225);
-  color: rgb(17 24 39);
+  background-color: rgb(255 255 255 / 0.55);
+  border-color: rgb(255 255 255 / 0.7);
+  color: rgb(28 25 23);
+  backdrop-filter: blur(12px);
 }
 
 html.light input::placeholder,
 html.light textarea::placeholder {
-  color: rgb(107 114 128);
+  color: rgb(120 113 108);
 }
 
 html.light footer {
-  border-color: rgb(203 213 225 / 0.8);
-  background-color: rgb(203 213 225 / 0.3);
+  border-color: rgb(255 255 255 / 0.45);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.25),
+    rgba(255, 255, 255, 0.4)
+  );
+  backdrop-filter: blur(20px);
 }
 
 .project-detail-page {
@@ -247,26 +498,38 @@ html.light footer {
 }
 
 .project-detail-topbar {
-  background-color: rgb(7 7 12 / 0.78);
-  border-bottom: 1px solid rgb(255 255 255 / 0.06);
+  background: linear-gradient(
+    180deg,
+    rgba(7, 7, 12, 0.72),
+    rgba(7, 7, 12, 0.55)
+  );
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .project-detail-cta {
   background-color: #fff;
-  color: #0f172a;
+  color: #1c1917;
 }
 
 html.light .project-detail-page {
-  background-color: rgb(241 245 249);
+  background: linear-gradient(180deg, #f3efe8 0%, #ebe6de 100%);
 }
 
 html.light .project-detail-topbar {
-  background-color: rgb(241 245 249 / 0.82);
-  border-bottom: 1px solid rgb(203 213 225 / 0.6);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.72),
+    rgba(255, 255, 255, 0.45)
+  );
+  backdrop-filter: blur(28px) saturate(170%);
+  -webkit-backdrop-filter: blur(28px) saturate(170%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.65);
 }
 
 html.light .project-detail-cta {
-  background-color: #0f172a;
+  background-color: #1c1917;
   color: #fff;
 }
 
