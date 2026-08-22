@@ -46,15 +46,10 @@ export default function About() {
           <h2 className="font-display text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight leading-[1.02] mb-6 sm:mb-8 lg:mb-10">
             <span className="gradient-text">About Me</span>
           </h2>
-          <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-6 sm:gap-8 lg:gap-16 items-end">
-            <p className="font-display text-xl sm:text-2xl lg:text-4xl font-semibold tracking-tight leading-snug text-gray-100">
-              Engineer focused on{' '}
-              <span className="text-amber-400">intelligent systems</span>
-            </p>
-            <p className="text-gray-400 text-base sm:text-lg leading-relaxed max-w-md lg:pb-1">
-              Curious builder at the intersection of hardware, software, and AI always shipping things that matter in the real world.
-            </p>
-          </div>
+          <p className="font-display text-xl sm:text-2xl lg:text-4xl font-semibold tracking-tight leading-snug text-gray-100 max-w-3xl">
+            Engineer focused on{' '}
+            <span className="text-amber-400">intelligent systems</span>
+          </p>
         </motion.div>
 
         {/* Bio + goals */}
