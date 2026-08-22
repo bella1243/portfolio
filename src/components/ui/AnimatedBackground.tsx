@@ -43,6 +43,11 @@ export default function AnimatedBackground() {
     }
 
     const draw = () => {
+      if (document.documentElement.classList.contains('project-modal-open')) {
+        animationId = requestAnimationFrame(draw)
+        return
+      }
+
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
       particles.forEach((p, i) => {
@@ -88,7 +93,7 @@ export default function AnimatedBackground() {
   }, [])
 
   return (
-    <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+    <div className="animated-background-root fixed inset-0 -z-10 overflow-hidden pointer-events-none">
       <div className="absolute inset-0 bg-[#08080c] [.light_&]:bg-[#ece8e2]" />
 
       {/* Soft luminous washes */}

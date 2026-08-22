@@ -30,7 +30,7 @@ export default function FloatingContact() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -12 }}
           transition={{ duration: 0.25 }}
-          className="hidden md:flex fixed top-24 left-0 right-0 z-40 justify-center px-4 pointer-events-none"
+          className="floating-contact-btn hidden md:flex fixed top-24 left-0 right-0 z-40 justify-center px-4 pointer-events-none"
           aria-label="Quick contact"
         >
           <div className="pointer-events-auto flex flex-wrap items-center justify-center gap-3">

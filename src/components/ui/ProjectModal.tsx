@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { createPortal } from 'react-dom'
+import { AnimatePresence, motion } from 'framer-motion'
 import {
   X,
   ArrowLeft,
@@ -129,6 +130,19 @@ export default function ProjectModal({ project, Icon, onClose }: ProjectModalPro
       return
     }
 
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    document.documentElement.classList.add('project-modal-open')
+
+    return () => {
+      document.body.style.overflow = previousOverflow
+      document.documentElement.classList.remove('project-modal-open')
+    }
+  }, [project])
+
+  useEffect(() => {
+    if (!project) return
+
     const onKeyDown = (e: KeyboardEvent) => {
       if (lightboxIndex !== null) {
         if (e.key === 'Escape') {
@@ -148,52 +162,40 @@ export default function ProjectModal({ project, Icon, onClose }: ProjectModalPro
       if (e.key === 'Escape') onClose()
     }
 
-    const previousOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
     window.addEventListener('keydown', onKeyDown)
 
     return () => {
-      document.body.style.overflow = previousOverflow
       window.removeEventListener('keydown', onKeyDown)
     }
   }, [project, onClose, lightboxIndex, images.length])
 
-  return (
-    <AnimatePresence>
-      {project && (
-        <motion.div
-          className="fixed inset-0 z-[100]"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.25 }}
-        >
+  return createPortal(
+    <AnimatePresence mode="wait">
+      {project ? (
+        <>
           <motion.div
+            key="project-modal-backdrop"
+            className="fixed inset-0 z-[100] bg-[#07070c]/95 [.light_&]:bg-[#f3efe8]/95"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            aria-hidden
+          />
+
+          <div
             role="dialog"
             aria-modal="true"
             aria-labelledby="project-modal-title"
-            initial={{ opacity: 0, y: 36 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 20 }}
-            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="relative z-10 h-full overflow-y-auto project-detail-page"
+            className="fixed inset-0 z-[101] project-detail-page project-detail-scroll"
             style={{ ['--project-accent' as string]: project.accent }}
           >
-            <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
-              <div
-                className="absolute top-[-12%] right-[-8%] h-[480px] w-[480px] rounded-full opacity-25 blur-3xl"
-                style={{
-                  background: `radial-gradient(circle, ${project.accent}60, transparent 70%)`,
-                }}
-              />
-            </div>
-
-            <header className="sticky top-0 z-30 px-4 sm:px-8 lg:px-12 py-4 project-detail-topbar backdrop-blur-xl">
+            <header className="sticky top-0 z-50 px-4 sm:px-8 lg:px-12 py-4 project-detail-topbar liquid-glass-topbar">
               <div className="max-w-6xl mx-auto">
                 <button
                   type="button"
                   onClick={onClose}
-                  className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-2 text-sm text-gray-200 hover:bg-white/10 transition-colors"
+                  className="liquid-glass-btn inline-flex items-center gap-2 rounded-full px-3.5 py-2 text-sm text-gray-200"
                   aria-label="Back to projects"
                 >
                   <ArrowLeft className="w-4 h-4" />
@@ -245,7 +247,7 @@ export default function ProjectModal({ project, Icon, onClose }: ProjectModalPro
                   </div>
 
                   {!project.hideImages && (
-                    <div className="lg:justify-self-end w-full">
+                    <div className="relative lg:justify-self-end w-full">
                       <ProjectImageStack
                         images={images}
                         title={project.title}
@@ -261,18 +263,20 @@ export default function ProjectModal({ project, Icon, onClose }: ProjectModalPro
 
               {/* Overview */}
               <section className="pb-14 max-w-2xl">
-                <h2 className="text-[11px] font-semibold tracking-[0.24em] uppercase text-amber-400 mb-5">
-                  Overview
-                </h2>
-                <div className="space-y-5">
-                  {project.overview.map((paragraph) => (
-                    <p
-                      key={paragraph}
-                      className="text-gray-300 text-base sm:text-[1.05rem] leading-relaxed"
-                    >
-                      {paragraph}
-                    </p>
-                  ))}
+                <div className="liquid-glass-panel rounded-3xl p-6 sm:p-8">
+                  <h2 className="text-[11px] font-semibold tracking-[0.24em] uppercase text-amber-400 mb-5">
+                    Overview
+                  </h2>
+                  <div className="space-y-5">
+                    {project.overview.map((paragraph) => (
+                      <p
+                        key={paragraph}
+                        className="text-gray-300 text-base sm:text-[1.05rem] leading-relaxed"
+                      >
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
                 </div>
               </section>
 
@@ -288,16 +292,12 @@ export default function ProjectModal({ project, Icon, onClose }: ProjectModalPro
                     </p>
                   </div>
                   <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {project.features.map((feature, i) => {
+                    {project.features.map((feature) => {
                       const FeatureIcon = featureIconMap[feature.icon] || Star
                       return (
-                        <motion.article
+                        <article
                           key={feature.title}
-                          initial={{ opacity: 0, y: 16 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: true, margin: '-40px' }}
-                          transition={{ duration: 0.35, delay: i * 0.04 }}
-                          className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.035] p-5 sm:p-6 backdrop-blur-sm transition-colors hover:border-amber-500/25 hover:bg-white/[0.06]"
+                          className="liquid-glass-card group relative overflow-hidden rounded-2xl p-5 sm:p-6"
                         >
                           <div
                             className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full opacity-0 blur-2xl transition-opacity group-hover:opacity-40"
@@ -305,8 +305,8 @@ export default function ProjectModal({ project, Icon, onClose }: ProjectModalPro
                             aria-hidden
                           />
                           <div
-                            className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl border border-white/10"
-                            style={{ backgroundColor: `${project.accent}22` }}
+                            className="liquid-glass-chip mb-4 flex h-11 w-11 items-center justify-center rounded-xl"
+                            style={{ ['--chip-accent' as string]: project.accent }}
                           >
                             <FeatureIcon className="h-5 w-5 text-amber-400" />
                           </div>
@@ -316,19 +316,20 @@ export default function ProjectModal({ project, Icon, onClose }: ProjectModalPro
                           <p className="text-sm text-gray-400 leading-relaxed">
                             {feature.description}
                           </p>
-                        </motion.article>
+                        </article>
                       )
                     })}
                   </div>
                 </section>
               )}
             </div>
-          </motion.div>
+          </div>
 
           {/* Lightbox */}
           <AnimatePresence>
             {lightboxIndex !== null && images[lightboxIndex] && (
               <motion.div
+                key="project-lightbox"
                 className="fixed inset-0 z-[120] flex items-center justify-center p-4 sm:p-8"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -401,8 +402,9 @@ export default function ProjectModal({ project, Icon, onClose }: ProjectModalPro
               </motion.div>
             )}
           </AnimatePresence>
-        </motion.div>
-      )}
-    </AnimatePresence>
+        </>
+      ) : null}
+    </AnimatePresence>,
+    document.body
   )
 }
